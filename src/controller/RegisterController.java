@@ -35,7 +35,7 @@ public class RegisterController {
                 
                 if(name.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty() ){
                     JOptionPane.showMessageDialog(null, "Please Enter fill You'r form !!", "Message", JOptionPane.ERROR_MESSAGE);
-                }else if(!userModel.registerUser(name, password, email, phone)){
+                }else if(!userModel.isValidName(name)){
                     JOptionPane.showMessageDialog(null, "Use another name !!", "Message", JOptionPane.ERROR_MESSAGE);
                 }else if(!userModel.isValidEmail(email)){
                     JOptionPane.showMessageDialog(null, "Please Input a valid email address !!", "Message", JOptionPane.ERROR_MESSAGE);
@@ -44,6 +44,7 @@ public class RegisterController {
                 }else if(!userModel.isValidPhone(phone)){
                     JOptionPane.showMessageDialog(null, "Please Input a valid phone nuber !!", "Message", JOptionPane.ERROR_MESSAGE);
                 }else{
+                    userModel.registerUser(name, password, email, phone);
                     JOptionPane.showMessageDialog(null, "Succes Adding new account !!");
                     LoginView loginView = new LoginView();
                     LoginController loginController = new LoginController(userModel, loginView);

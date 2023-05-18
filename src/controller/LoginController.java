@@ -65,6 +65,23 @@ public class LoginController {
             }
         });
         
+        loginView.btnPass.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                System.out.println("HEHE");
+                if(loginView.pass.equals("hide password")){
+                    loginView.fldPass.setEchoChar((char)0);
+                    loginView.pass = "show password";
+                    loginView.imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\hidePass.png";
+                }else{
+                    loginView.fldPass.setEchoChar('*');
+                    loginView.pass = "hide password";
+                    loginView.imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\showPass.png";
+                }
+                
+            }
+        });
+        
     }
     
     

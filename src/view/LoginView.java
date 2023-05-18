@@ -6,13 +6,20 @@ import javax.swing.*;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class LoginView extends JFrame{
+    public String pass = "hide password";
+    public String imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\hidePass.png";
+    
     JLabel lblTitle = new JLabel("LOGIN PAGE");
     
     JLabel lblName = new JLabel("Name");
     JTextField fldName = new JTextField();
     
     JLabel lblPass = new JLabel("Password");
-    JPasswordField fldPass = new JPasswordField();
+    public JPasswordField fldPass = new JPasswordField();
+    
+    public ImageIcon showPassword = new ImageIcon(new ImageIcon(imgPass).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH));
+//    ImageIcon showPassword = new ImageIcon("./assets/showPass.png");
+    public JButton btnPass = new JButton(null, showPassword);
     
     JLabel lblRegister = new JLabel("Dont have an account ?");
     public JButton btnRegister = new JButton("Register Now");
@@ -35,6 +42,15 @@ public class LoginView extends JFrame{
         add(lblRegister);
         add(btnRegister);
         add(btnLogin);
+        add(btnPass);
+        
+        btnPass.setOpaque(false);
+        btnPass.setContentAreaFilled(false);
+        btnPass.setBorderPainted(false);
+        
+        btnRegister.setOpaque(false);
+        btnRegister.setContentAreaFilled(false);
+        btnRegister.setBorderPainted(false);
         
         lblTitle.setBounds(460, 150, 80, 50);
         
@@ -43,9 +59,10 @@ public class LoginView extends JFrame{
         
         lblPass.setBounds(370, 280, 100, 30);
         fldPass.setBounds(370, 310, 250, 30);
+        btnPass.setBounds(620, 310, 40, 30);
         
-        lblRegister.setBounds(430, 350, 150, 30);
-        btnRegister.setBounds(550, 350, 120, 30);
+        lblRegister.setBounds(400, 350, 150, 30);
+        btnRegister.setBounds(520, 350, 120, 30);
         
         btnLogin.setBounds(395, 400, 200, 30);
     }

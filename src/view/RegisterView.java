@@ -70,6 +70,10 @@ public class RegisterView extends JFrame{
         btnPass.setContentAreaFilled(false);
         btnPass.setBorderPainted(false);
         
+        btnLogin.setOpaque(false);
+        btnLogin.setContentAreaFilled(false);
+        btnLogin.setBorderPainted(false);
+        
         lblTitle.setBounds(450, 100, 100, 50);
         
         lblName.setBounds(370, 170, 100, 30);
@@ -85,10 +89,10 @@ public class RegisterView extends JFrame{
         lblPhone.setBounds(370, 350, 100, 30);
         fldPhone.setBounds(370, 380, 250, 30);
         
-        lblRegister.setBounds(430, 420, 150, 30);
+        lblRegister.setBounds(410, 420, 150, 30);
         btnRegister.setBounds(395, 470, 200, 30);
         
-        btnLogin.setBounds(550, 420, 120, 30);
+        btnLogin.setBounds(530, 420, 120, 30);
     }
     
     public String getName(){

@@ -117,14 +117,10 @@ public class UserModel extends DatabaseConnector{
         
     }
     
-    public boolean registerUser(String name, String pass, String email, String phone){
+    public void registerUser(String name, String pass, String email, String phone){
         Date dateNow = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //        System.out.println(checkName(name));
-        if(checkName(name)){
-//            System.out.println("aa");
-            return false;
-        }
 //        System.out.println(name);
 //        System.out.println(email);
 //        System.out.println(phone);
@@ -150,17 +146,17 @@ public class UserModel extends DatabaseConnector{
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
-        return true;
+
     }
     
-    public boolean checkName(String name){   
+    public boolean isValidName(String name){   
         UserModel[] users = putAllData();
         for(int i=0;i<users.length;i++){    
             if(users[i].name.equals(name)){    
-                return true;    
+                return false;    
             }    
         }    
-        return false;    
+        return true;    
     }    
     
     public boolean isValidEmail(String email){
@@ -180,7 +176,7 @@ public class UserModel extends DatabaseConnector{
     }
     
     public boolean isValidPhone(String phone){
-        String regex = "^(^\\+62|62|^08)(\\d{3,4}-?){2}\\d{8,11}$";
+        String regex = "^(^\\+62|62|^08)(\\d{3,4}-?){2}\\d{3,4}$";
         
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phone);
