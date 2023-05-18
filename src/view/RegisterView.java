@@ -66,6 +66,10 @@ public class RegisterView extends JFrame{
         add(btnLogin);
         add(btnPass);
         
+        btnPass.setOpaque(false);
+        btnPass.setContentAreaFilled(false);
+        btnPass.setBorderPainted(false);
+        
         lblTitle.setBounds(450, 100, 100, 50);
         
         lblName.setBounds(370, 170, 100, 30);
@@ -95,12 +99,12 @@ public class RegisterView extends JFrame{
         return String.valueOf(fldPass.getPassword());
     }
 
-    public JTextField getFldEmail() {
-        return fldEmail;
+    public String getEmail() {
+        return fldEmail.getText();
     }
 
-    public JTextField getFldPhone() {
-        return fldPhone;
+    public String getPhone() {
+        return fldPhone.getText();
     }
     
 }

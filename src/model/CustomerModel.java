@@ -9,8 +9,15 @@ package model;
  *
  * @author TUF GAMING
  */
-public class CustomerModel {
+public class CustomerModel extends UserModel{
+
+    public CustomerModel(int id, String name, String pass, String email, String phone, String role, String created_at, String updated_at){
+          super(id, name, pass, email, phone, role, created_at, updated_at);
+    }
     
+    public void testing(){
     
+    }
     
+        
 }

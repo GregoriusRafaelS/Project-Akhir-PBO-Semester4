@@ -9,7 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.AdminModel;
+import model.CustomerModel;
 import model.UserModel;
+import view.AdminHomeView;
+import view.CustomerHomeView;
 import view.LoginView;
 import view.RegisterView;
 
@@ -33,16 +36,18 @@ public class LoginController {
                 
                 if(userModel.loginUser(name, password).equals("admin")){
                     JOptionPane.showMessageDialog(null, "Login Success");            
-//                        AdminView adminView = new AdminView();
-//                        AdminModel adminModel = new AdminModel();
-//                        AdminController AdminController = new AdminController(adminModel, adminView);
-//                    loginView.dispose();
+                    
+                    AdminModel adminModel = new AdminModel(userModel.getId(), userModel.getName(), userModel.getPass(), userModel.getEmail(), userModel.getPhone(), userModel.getRole(), userModel.getCreated_at(), userModel.getUpdated_at());
+                    AdminHomeView adminHomeView = new AdminHomeView(adminModel);
+                    AdminController adminController = new AdminController(adminModel, adminHomeView);
+                    loginView.dispose();
                 }else if(userModel.loginUser(name, password).equals("customer")){
                     JOptionPane.showMessageDialog(null, "Login Success");
-//                        ParkingDataModel parkingDataModel = new ParkingDataModel();
-//                        ParkingPageView parkingPageView = new ParkingPageView();
-//                        ParkingPageController ppc = new ParkingPageController(parkingDataModel, parkingPageView, username);
-//                    loginView.dispose();
+                    
+                    CustomerModel customerModel = new CustomerModel(userModel.getId(), userModel.getName(), userModel.getPass(), userModel.getEmail(), userModel.getPhone(), userModel.getRole(), userModel.getCreated_at(), userModel.getUpdated_at());
+                    CustomerHomeView customerHomeView = new CustomerHomeView(customerModel);
+                    CustomerController customerController = new CustomerController(customerModel, customerHomeView);
+                    loginView.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "Failed Login");
                 }

@@ -30,13 +30,19 @@ public class RegisterController {
             public void actionPerformed(ActionEvent arg0) {
                 String name = registerView.getName();
                 String password = registerView.getPassword();
-                String email = registerView.getPassword();
-                String phone = registerView.getPassword();                
+                String email = registerView.getEmail();
+                String phone = registerView.getPhone();                
                 
-                if(name.equals("") || password.equals("") || email.equals("") || phone.equals("") ){
+                if(name.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty() ){
                     JOptionPane.showMessageDialog(null, "Please Enter fill You'r form !!", "Message", JOptionPane.ERROR_MESSAGE);
-                } else if(!userModel.registerUser(name, password, email, phone)){
+                }else if(!userModel.registerUser(name, password, email, phone)){
                     JOptionPane.showMessageDialog(null, "Use another name !!", "Message", JOptionPane.ERROR_MESSAGE);
+                }else if(!userModel.isValidEmail(email)){
+                    JOptionPane.showMessageDialog(null, "Please Input a valid email address !!", "Message", JOptionPane.ERROR_MESSAGE);
+                }else if(!userModel.isValidPassword(password)){
+                    JOptionPane.showMessageDialog(null, "Your password must meet the following criteria : \n Must have at least one numeric character \n Must have at least one lowercase character \n Must have at least one uppercase character \n Must have at least one special symbol among @#$% \n Password length should be between 8 and 20", "Message", JOptionPane.ERROR_MESSAGE);
+                }else if(!userModel.isValidPhone(phone)){
+                    JOptionPane.showMessageDialog(null, "Please Input a valid phone nuber !!", "Message", JOptionPane.ERROR_MESSAGE);
                 }else{
                     JOptionPane.showMessageDialog(null, "Succes Adding new account !!");
                     LoginView loginView = new LoginView();
