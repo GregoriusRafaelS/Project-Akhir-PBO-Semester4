@@ -5,9 +5,13 @@
  */
 package view;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import model.AdminModel;
 
 /**
@@ -20,9 +24,23 @@ public class AdminHomesView extends javax.swing.JFrame {
      * Creates new form AdminHomesView
      */
     AdminModel adminModel;
+//    GridBagLayout layout = new GridBagLayout();
+//    AdminPanelHomeView APHome;
+//    AdminPanelVehicleView APVehicle;;
+    
     public AdminHomesView(AdminModel adminModel) {
         initComponents();
         this.adminModel = adminModel;
+//        APHome = new AdminPanelHomeView();
+//        APVehicle = new AdminPanelVehicleView();
+//        pnlDefaultAdmin.setLayout(layout);
+//        GridBagConstraints c = new GridBagConstraints();
+//        c.gridx = 0;
+//        c.gridy = 0;
+//        pnlDefaultAdmin.add(APHome, c);
+//        c.gridx = 0;
+//        c.gridy = 0;
+//        pnlDefaultAdmin.add(APVehicle, c);
 //        System.out.println(lblMenu.getWidth()); ini imageicon menu nanti mau ku sesuai kan lblMenu tapi masih return 0 ga tau knp
 //        ImageIcon menu = new ImageIcon(new ImageIcon("./src/assets/menu.png").getImage().getScaledInstance(40, 30, java.awt.Image.SCALE_SMOOTH));
 //        ImageIcon profile = new ImageIcon(new ImageIcon("./src/assets/userPicture.png").getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH));
@@ -60,12 +78,13 @@ public class AdminHomesView extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        pnlVehicleView = new javax.swing.JPanel();
+        lblVehicleView = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        lblDashboardView = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        pnlDefaultAdmin = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -84,6 +103,33 @@ public class AdminHomesView extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         rSTableMetro2 = new rojerusan.RSTableMetro();
+        pnlVehicleAdmin = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        rSTableMetro3 = new rojerusan.RSTableMetro();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -108,18 +154,7 @@ public class AdminHomesView extends javax.swing.JFrame {
         lblProfile.getAccessibleContext().setAccessibleDescription("");
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 5, 3, 50));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -183,47 +218,39 @@ public class AdminHomesView extends javax.swing.JFrame {
 
         jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 180, 40));
 
-        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlVehicleView.setBackground(new java.awt.Color(51, 51, 51));
+        pnlVehicleView.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setBackground(new java.awt.Color(251, 251, 251));
-        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(251, 251, 251));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataVehicle.png"))); // NOI18N
-        jLabel5.setText("Manage Vehicle");
-        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 140, -1));
+        lblVehicleView.setBackground(new java.awt.Color(251, 251, 251));
+        lblVehicleView.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lblVehicleView.setForeground(new java.awt.Color(251, 251, 251));
+        lblVehicleView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataVehicle.png"))); // NOI18N
+        lblVehicleView.setText("Manage Vehicle");
+        pnlVehicleView.add(lblVehicleView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 140, -1));
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 180, 40));
+        jPanel4.add(pnlVehicleView, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 180, 40));
 
         jPanel7.setBackground(new java.awt.Color(51, 51, 51));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setBackground(new java.awt.Color(251, 251, 251));
-        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(251, 251, 251));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dashboard.png"))); // NOI18N
-        jLabel7.setText("Dashboard");
-        jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 140, -1));
+        lblDashboardView.setBackground(new java.awt.Color(251, 251, 251));
+        lblDashboardView.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lblDashboardView.setForeground(new java.awt.Color(251, 251, 251));
+        lblDashboardView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dashboard.png"))); // NOI18N
+        lblDashboardView.setText("Dashboard");
+        jPanel7.add(lblDashboardView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 140, -1));
 
         jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 180, 40));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 160, 5));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 180, 640));
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlDefaultAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDefaultAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel12.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(255, 51, 51)));
 
@@ -248,15 +275,15 @@ public class AdminHomesView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel11.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 150, 70));
+        pnlDefaultAdmin.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 150, 70));
 
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel12.setText("List User");
-        jPanel11.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        pnlDefaultAdmin.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel13.setText("Number of User");
-        jPanel11.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+        pnlDefaultAdmin.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         jPanel13.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(102, 102, 255)));
 
@@ -281,11 +308,11 @@ public class AdminHomesView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel11.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 150, 70));
+        pnlDefaultAdmin.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 150, 70));
 
         jLabel15.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel15.setText("Number of Car");
-        jPanel11.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
+        pnlDefaultAdmin.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
 
         jPanel14.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(255, 51, 51)));
 
@@ -310,11 +337,11 @@ public class AdminHomesView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel11.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 70));
+        pnlDefaultAdmin.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 70));
 
         jLabel17.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel17.setText("Profit");
-        jPanel11.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
+        pnlDefaultAdmin.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
 
         jPanel15.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(102, 102, 255)));
 
@@ -339,7 +366,7 @@ public class AdminHomesView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel11.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 150, 70));
+        pnlDefaultAdmin.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 150, 70));
 
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -364,15 +391,15 @@ public class AdminHomesView extends javax.swing.JFrame {
             rSTableMetro1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel11.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 460, 170));
+        pnlDefaultAdmin.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 460, 170));
 
         jLabel19.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel19.setText("Number of Vehicle");
-        jPanel11.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        pnlDefaultAdmin.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel20.setText("List Vehicle");
-        jPanel11.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        pnlDefaultAdmin.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
         rSTableMetro2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -397,13 +424,155 @@ public class AdminHomesView extends javax.swing.JFrame {
             rSTableMetro2.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 460, 170));
+        pnlDefaultAdmin.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 460, 170));
 
-        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 820, 640));
+        jLayeredPane1.add(pnlDefaultAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 640));
+
+        pnlVehicleAdmin.setPreferredSize(new java.awt.Dimension(820, 700));
+        pnlVehicleAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        rSTableMetro3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"K 6425 XA", "Honda", "500000", "3", "Btn", null},
+                {"BA 2225 XA", "Honda", "500000", "3", "Btn", null},
+                {"K 6425 XA", "Honda", "500000", "3", "Btn", null},
+                {"K 6425 XA", "Honda", "500000", null, "Btn", null}
+            },
+            new String [] {
+                "License", "Name", "Quantiity", "Price", "Description", "Categories"
+            }
+        ));
+        rSTableMetro3.setColorBordeFilas(new java.awt.Color(0, 112, 192));
+        rSTableMetro3.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 10)); // NOI18N
+        rSTableMetro3.setFuenteFilas(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        rSTableMetro3.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        rSTableMetro3.setFuenteHead(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rSTableMetro3.setRowHeight(20);
+        jScrollPane3.setViewportView(rSTableMetro3);
+
+        jPanel11.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 680, 170));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel22.setText("Data Vehicle In Database");
+        jPanel11.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+
+        pnlVehicleAdmin.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 820, 320));
+
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("License");
+        jPanel16.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 170, 30));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jPanel16.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel23.setText("Name");
+        jPanel16.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 170, 30));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jPanel16.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 30, 30));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel25.setText("Price");
+        jPanel16.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
+
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 170, 30));
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jPanel16.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 30, 30));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel27.setText("Quantity");
+        jPanel16.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
+
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jPanel16.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 30, 30));
+
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 160, 30));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel29.setText("Description");
+        jPanel16.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
+
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jPanel16.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 30, 30));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane4.setViewportView(jTextArea2);
+
+        jPanel16.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 190, 110));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel16.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 70, -1));
+
+        jButton4.setText("Delete");
+        jPanel16.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 100, 30));
+
+        jButton5.setText("Add");
+        jPanel16.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 100, 30));
+
+        jButton6.setText("Update");
+        jPanel16.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 100, 30));
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel31.setText("Manage Data Vehicle");
+        jPanel16.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+
+        pnlVehicleAdmin.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 320));
+
+        jLayeredPane1.add(pnlVehicleAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 640));
+
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, 640));
 
         setSize(new java.awt.Dimension(1014, 737));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -440,7 +609,41 @@ public class AdminHomesView extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getLblVehicleView() {
+        return lblVehicleView;
+    }
+
+    public void setPnlDefaultAdmin(JPanel pnlDefaultAdmin) {
+        this.pnlDefaultAdmin = pnlDefaultAdmin;
+    }
+
+    public JPanel getPnlDefaultAdmin() {
+        return pnlDefaultAdmin;
+    }
+
+    public JPanel getPnlVehicleAdmin() {
+        return pnlVehicleAdmin;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public JPanel getjPanel4() {
+        return jPanel4;
+    }
+
+    public JLabel getLblDashboardView() {
+        return lblDashboardView;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -453,12 +656,23 @@ public class AdminHomesView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -466,19 +680,32 @@ public class AdminHomesView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel lblDashboardView;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblProfile;
+    private javax.swing.JLabel lblVehicleView;
+    private javax.swing.JPanel pnlDefaultAdmin;
+    private javax.swing.JPanel pnlVehicleAdmin;
+    private javax.swing.JPanel pnlVehicleView;
     private rojerusan.RSTableMetro rSTableMetro1;
     private rojerusan.RSTableMetro rSTableMetro2;
+    private rojerusan.RSTableMetro rSTableMetro3;
     // End of variables declaration//GEN-END:variables
 }
