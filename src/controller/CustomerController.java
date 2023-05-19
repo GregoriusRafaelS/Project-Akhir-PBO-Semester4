@@ -7,13 +7,14 @@ package controller;
 
 import model.CustomerModel;
 import view.CustomerHomeView;
+import view.CustomerHomesView;
 
 /**
  *
  * @author TUF GAMING
  */
 public class CustomerController {
-    public CustomerController(CustomerModel customerModel, CustomerHomeView customerHomeView){
+    public CustomerController(CustomerModel customerModel, CustomerHomesView customerHomeView){
         
     }
 }

@@ -65,16 +65,15 @@ public class RegisterController {
             @Override
             public void actionPerformed(ActionEvent arg0){
                 System.out.println("HEHE");
-                if(registerView.pass.equals("hide password")){
+                if(registerView.pass.equals("hidePass")){
                     registerView.fldPass.setEchoChar((char)0);
-                    registerView.pass = "show password";
-                    registerView.imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\hidePass.png";
+                    registerView.setPass("showPass");
                 }else{
                     registerView.fldPass.setEchoChar('*');
-                    registerView.pass = "hide password";
-                    registerView.imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\showPass.png";
+                    registerView.setPass("hidePass");
                 }
-                
+                    registerView.setShowPassword("./src/assets/" + registerView.getPass() +".png");
+                    registerView.setBtnPass(registerView.getShowPassword());
             }
         });
         

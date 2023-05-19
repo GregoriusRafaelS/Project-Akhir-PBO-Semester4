@@ -6,8 +6,8 @@ import javax.swing.*;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class LoginView extends JFrame{
-    public String pass = "hide password";
-    public String imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\hidePass.png";
+    public String pass = "hidePass";
+    public String imgPass = "./src/assets/hidePass.png";
     
     JLabel lblTitle = new JLabel("LOGIN PAGE");
     
@@ -74,4 +74,25 @@ public class LoginView extends JFrame{
     public String getPassword(){
         return String.valueOf(fldPass.getPassword());
     }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public void setShowPassword(String imgPass) {
+        this.showPassword = new ImageIcon(new ImageIcon(imgPass).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH));
+    }
+
+    public ImageIcon getShowPassword() {
+        return showPassword;
+    }
+    
+    public void setBtnPass(ImageIcon showPassword) {
+        btnPass.setIcon(showPassword);
+    }
+    
 }

@@ -12,7 +12,9 @@ import model.AdminModel;
 import model.CustomerModel;
 import model.UserModel;
 import view.AdminHomeView;
+import view.AdminHomesView;
 import view.CustomerHomeView;
+import view.CustomerHomesView;
 import view.LoginView;
 import view.RegisterView;
 
@@ -38,14 +40,16 @@ public class LoginController {
                     JOptionPane.showMessageDialog(null, "Login Success");            
                     
                     AdminModel adminModel = new AdminModel(userModel.getId(), userModel.getName(), userModel.getPass(), userModel.getEmail(), userModel.getPhone(), userModel.getRole(), userModel.getCreated_at(), userModel.getUpdated_at());
-                    AdminHomeView adminHomeView = new AdminHomeView(adminModel);
+                    AdminHomesView adminHomeView = new AdminHomesView(adminModel);
+                    adminHomeView.show();
                     AdminController adminController = new AdminController(adminModel, adminHomeView);
                     loginView.dispose();
                 }else if(userModel.loginUser(name, password).equals("customer")){
                     JOptionPane.showMessageDialog(null, "Login Success");
                     
                     CustomerModel customerModel = new CustomerModel(userModel.getId(), userModel.getName(), userModel.getPass(), userModel.getEmail(), userModel.getPhone(), userModel.getRole(), userModel.getCreated_at(), userModel.getUpdated_at());
-                    CustomerHomeView customerHomeView = new CustomerHomeView(customerModel);
+                    CustomerHomesView customerHomeView = new CustomerHomesView(customerModel);
+                    customerHomeView.show();
                     CustomerController customerController = new CustomerController(customerModel, customerHomeView);
                     loginView.dispose();
                 }else{
@@ -69,16 +73,15 @@ public class LoginController {
             @Override
             public void actionPerformed(ActionEvent arg0){
                 System.out.println("HEHE");
-                if(loginView.pass.equals("hide password")){
+                if(loginView.pass.equals("hidePass")){
                     loginView.fldPass.setEchoChar((char)0);
-                    loginView.pass = "show password";
-                    loginView.imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\hidePass.png";
+                    loginView.setPass("showPass");
                 }else{
                     loginView.fldPass.setEchoChar('*');
-                    loginView.pass = "hide password";
-                    loginView.imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\showPass.png";
+                    loginView.setPass("hidePass");
                 }
-                
+                loginView.setShowPassword("./src/assets/" + loginView.getPass() +".png");
+                loginView.setBtnPass(loginView.getShowPassword());
             }
         });
         

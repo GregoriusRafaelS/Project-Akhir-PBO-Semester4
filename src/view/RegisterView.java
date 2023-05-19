@@ -7,9 +7,9 @@ import javax.swing.*;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class RegisterView extends JFrame{
-    public String pass = "hide password";
-    public String imgPass = "C:\\Users\\TUF GAMING\\OneDrive\\Documents\\NetBeansProjects\\RentalCarSystem\\src\\assets\\hidePass.png";
-    
+    public String pass = "hidePass";
+    public String imgPass = "./src/assets/hidePass.png";
+
     JLabel lblTitle = new JLabel("REGISTER PAGE");
 
     JLabel lblName = new JLabel("Name");
@@ -22,13 +22,12 @@ public class RegisterView extends JFrame{
     public JPasswordField fldPass = new JPasswordField();
     
     public ImageIcon showPassword = new ImageIcon(new ImageIcon(imgPass).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH));
-//    ImageIcon showPassword = new ImageIcon("./assets/showPass.png");
     public JButton btnPass = new JButton(null, showPassword);
         
     JLabel lblPhone = new JLabel("Phone");
     JTextField fldPhone = new JTextField();
     
-    JLabel lblRegister = new JLabel("already have an account ?");
+    JLabel lblRegister = new JLabel("Already have an account ?");
     public JButton btnLogin = new JButton("Login Now");
    
     public JButton btnRegister = new JButton("Register");
@@ -110,5 +109,26 @@ public class RegisterView extends JFrame{
     public String getPhone() {
         return fldPhone.getText();
     }
+
+    public void setBtnPass(ImageIcon showPassword) {
+        btnPass.setIcon(showPassword);
+    }
+    
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setShowPassword(String imgPass) {
+        this.showPassword = new ImageIcon(new ImageIcon(imgPass).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH));
+    }
+
+    public ImageIcon getShowPassword() {
+        return showPassword;
+    }
+    
     
 }
