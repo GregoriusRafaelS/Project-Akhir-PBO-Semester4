@@ -13,8 +13,12 @@ import javax.swing.JPanel;
 import model.AdminModel;
 import view.AdminHomeView;
 import view.AdminHomesView;
+import view.AdminPanelHomeView;
+import view.AdminPanelRecordsView;
+import view.AdminPanelUsersView;
 import view.AdminPanelVehicleView;
 import view.AdminVehicleView;
+import view.LoginView;
 
 
 /**
@@ -32,12 +36,8 @@ public class AdminController{
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("ss");
-//                AdminVehicleView adminVehicleView = new AdminVehicleView();
-//                adminVehicleView.show();
-//                adminHomeView.dispose();
-//                  AdminPanelVehicleView adminPanelVehicleView = new AdminPanelVehicleView();
-//                  adminHomeView.setPnlDefaultAdmin(adminPanelVehicleView);
-                  switchPanels(adminHomeView.getPnlVehicleAdmin());
+                  AdminPanelVehicleView adminPanelVehicleView = new AdminPanelVehicleView();
+                  switchPanels(adminPanelVehicleView);
               }
           });
         
@@ -45,25 +45,40 @@ public class AdminController{
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("ss");
-//                AdminVehicleView adminVehicleView = new AdminVehicleView();
-//                adminVehicleView.show();
-//                adminHomeView.dispose();
-//                  AdminPanelVehicleView adminPanelVehicleView = new AdminPanelVehicleView();
-//                  adminHomeView.setPnlDefaultAdmin(adminPanelVehicleView);
-                  switchPanels(adminHomeView.getPnlDefaultAdmin());
+                  AdminPanelHomeView adminPanelHomeView = new AdminPanelHomeView();
+                  switchPanels(adminPanelHomeView);
               }
           });
-      
+
+        adminHomeView.getLblLogoutView().addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                  System.out.println("ss");
+                  adminHomeView.dispose();
+                  LoginView loginView = new LoginView();
+              }
+        });
+                  
+        adminHomeView.getLblUsersView().addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                  System.out.println("ss");
+                  AdminPanelUsersView adminPanelUsersView = new AdminPanelUsersView();
+                  switchPanels(adminPanelUsersView);
+              }
+          });
+                  
           
-//        adminVehicleView.getlblHomeView().addMouseListener(new MouseAdapter(){
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                AdminVehicleView adminVehicleView = new AdminVehicleView();
-//                adminVehicleView.show();
-//                adminHomeView.dispose();
-//              }
-//          });
-    }
+        adminHomeView.getLblRecordsView().addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("ss");
+                AdminPanelRecordsView adminPanelRecordsView = new AdminPanelRecordsView();
+                switchPanels(adminPanelRecordsView);
+              }
+          });
+        }
+    
       public void switchPanels(JPanel panel){
             adminHomeView.getLayeredPane().removeAll();
             adminHomeView.getLayeredPane().add(adminHomeView.getjPanel1());
