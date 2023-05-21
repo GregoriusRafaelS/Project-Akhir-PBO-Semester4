@@ -5,11 +5,6 @@
  */
 package view;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import model.AdminModel;
@@ -22,7 +17,7 @@ public class AdminHomesView extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminHomesView
-     */
+    */
     AdminModel adminModel;
 //    GridBagLayout layout = new GridBagLayout();
 //    AdminPanelHomeView APHome;
@@ -32,7 +27,7 @@ public class AdminHomesView extends javax.swing.JFrame {
         initComponents();
         this.adminModel = adminModel;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

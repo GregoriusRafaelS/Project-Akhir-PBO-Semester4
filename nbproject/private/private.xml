@@ -8,14 +8,17 @@
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/assets/appLogo.png</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/AdminHomeView.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/CustomerHomeView.java</file>
+            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/AdminPanelRecordsView.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/AdminPanelHomeView.java</file>
+            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/controller/ManageVehicleController.java</file>
+            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/model/VehicleModel.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/rentalcarsystem/RentalCarSystem.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/RegisterView.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/assets/historyPayment.png</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/model/CustomerModel.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/controller/CustomerController.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/controller/AdminController.java</file>
-            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/AdminVehicleView.java</file>
+            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/testing.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/assets/showPass.png</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/CustomerHomesView.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/model/DatabaseConnector.java</file>
@@ -25,9 +28,13 @@
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/model/AdminModel.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/assets/userPicture.png</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/AdminPanelVehicleView.java</file>
+            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/AdminPanelUsersView.java</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/assets/dataVehicle.png</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/assets/hidePass.png</file>
             <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/AdminHomesView.java</file>
+            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/controller/ManageUserController.java</file>
+            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/controller/setVehicleController.java</file>
+            <file>file:/C:/Rafael/Materi%20Kuliah/Semester%204/Prak_PBO/RentalCarSystem/src/view/AdminPanelSetLicenseView.java</file>
         </group>
     </open-files>
 </project-private>

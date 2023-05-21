@@ -6,15 +6,10 @@
 package model;
 
 import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.DriverManager;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,6 +43,7 @@ public class UserModel extends DatabaseConnector{
             }
             
             statement.close();
+            resultSet.close();
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -67,21 +63,12 @@ public class UserModel extends DatabaseConnector{
    
             while(resultSet.next()){
                 users[i] = new UserModel(resultSet.getInt("id_user"), resultSet.getString("name"), resultSet.getString("password"), resultSet.getString("email"), resultSet.getString("phone"), resultSet.getString("role"), resultSet.getString("created_at"), resultSet.getString("updated_at"));
-//                users[i].id = resultSet.getInt("id_user");
-//                users[i].name = resultSet.getString("name");
-//                users[i].pass = resultSet.getString("password");
-//                users[i].phone = resultSet.getString("phone");
-//                users[i].email = resultSet.getString("email");
-//                user[0].id = resultSet.getInt("id");
-//                user[0].name = resultSet.getString("name");
-//                user[0].pass = resultSet.getString("pass");
-//                user[0].phone = resultSet.getString("phone");
-//                user[0].email = resultSet.getString("email");
-//                users.push();
                 i++;
             }
             
             statement.close();
+            resultSet.close();
+
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -108,7 +95,8 @@ public class UserModel extends DatabaseConnector{
             } 
             
             statement.close();
-
+            resultSet.close();
+            
             return " ";
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
@@ -117,7 +105,7 @@ public class UserModel extends DatabaseConnector{
         
     }
     
-    public void registerUser(String name, String pass, String email, String phone){
+    public void registerUser(String name, String pass, String email, String phone, String role){
         Date dateNow = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //        System.out.println(checkName(name));
@@ -134,7 +122,7 @@ public class UserModel extends DatabaseConnector{
                     + ",'"+ email + "'"
                     + ",'" + pass + "'"
                     + ",'" + phone + "'"
-                    + ",'customer'" 
+                    + ",'" + role + "'" 
                     + ",'" + formatter.format(dateNow) + "'"
                     + ",'" + formatter.format(dateNow) + "')";
             
@@ -149,10 +137,75 @@ public class UserModel extends DatabaseConnector{
 
     }
     
+    public UserModel searchUsersByName(String name){
+        UserModel user =  new UserModel(0, "", "", "", "", "", "", "");
+        try {
+            String query = "SELECT * FROM `users` WHERE "
+                    + "`name`='" + name + "'";
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            if (resultSet.next()) {
+                id = (resultSet.getInt("id_user"));
+                name = (resultSet.getString("name"));
+                email = (resultSet.getString("email"));
+                pass = (resultSet.getString("password"));
+                phone = (resultSet.getString("phone"));
+                role = (resultSet.getString("role"));
+                created_at = (resultSet.getString("created_at"));
+                updated_at = (resultSet.getString("updated_at"));
+                System.out.println(id + "SSSSSSSSSSSSSSSSSSSSSSSSS");
+               
+            } 
+             user = new UserModel(id, name, pass , email, phone, role, created_at, updated_at);
+            statement.close();
+            resultSet.close();
+            
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        } 
+        return user;
+    }
+    
+    public void updateUser(String name, String password, String email, String phone, String role, int id){
+        Date dateNow = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(id);
+        try {
+            String query = "UPDATE `users` SET "
+                    + "`name` = '" + name
+                    + "', `password` = '" + password
+                    + "', `email` = '" + email
+                    + "', `phone` = '" + phone
+                    + "', `role` = '" + role
+                    + "', `updated_at` = '" + formatter.format(dateNow) + "'"
+                    + " WHERE `id_user` = " + id;
+            statement = connection.createStatement();
+            statement.executeUpdate(query);
+            
+            statement.close();
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        } 
+    }
+    
+    public void deleteUser(int id){
+        try {
+            String query = "DELETE FROM `users`"
+                    + "WHERE `id_user` = " + id;
+            statement = connection.createStatement();
+            statement.executeUpdate(query);
+            
+            statement.close();
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        } 
+    }
+    
     public boolean isValidName(String name){   
         UserModel[] users = putAllData();
-        for(int i=0;i<users.length;i++){    
-            if(users[i].name.equals(name)){    
+        for(int i=0;i<users.length;i++){  
+            if(users[i].name.equals(name)){  
                 return false;    
             }    
         }    

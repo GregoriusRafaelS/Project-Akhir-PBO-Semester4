@@ -5,6 +5,14 @@
  */
 package view;
 
+import controller.ManageUserController;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import rojerusan.RSTableMetro;
+
 /**
  *
  * @author TUF GAMING
@@ -14,10 +22,39 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
     /**
      * Creates new form AdminPanelUsersView
      */
+    
+    private DefaultTableModel model;
     public AdminPanelUsersView() {
         initComponents();
+        ManageUserController controller = new ManageUserController(this, model);
+        controller.setUserDetailToTable();
     }
 
+    public RSTableMetro getTblUsersDetail() {
+        return tblUsersDetail;
+    }
+
+    public JComboBox<String> getCbxRole() {
+        return cbxRole;
+    }
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public JTextField getTxtName() {
+        return txtName;
+    }
+
+    public JTextField getTxtPassword() {
+        return txtPassword;
+    }
+
+    public JTextField getTxtPhone() {
+        return txtPhone;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,27 +66,31 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
 
         jPanel12 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
+        cbxRole = new javax.swing.JComboBox<>();
+        btnDelete = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        rSTableMetro3 = new rojerusan.RSTableMetro();
+        tblUsersDetail = new rojerusan.RSTableMetro();
         jLabel22 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(820, 640));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,12 +101,12 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         jLabel5.setText("Name");
         jPanel12.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
-        jPanel12.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 170, 30));
+        jPanel12.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 170, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
         jPanel12.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
@@ -74,12 +115,12 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         jLabel23.setText("Password");
         jPanel12.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
-        jPanel12.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 170, 30));
+        jPanel12.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 170, 30));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
         jPanel12.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 30, 30));
@@ -88,105 +129,168 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         jLabel25.setText("Phone");
         jPanel12.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtPhoneActionPerformed(evt);
             }
         });
-        jPanel12.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 170, 30));
+        jPanel12.add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 170, 30));
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
         jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 30, 30));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel27.setText("Role");
-        jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
+        jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
-        jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 30, 30));
+        jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 30, 30));
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                txtEmailActionPerformed(evt);
             }
         });
-        jPanel12.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 160, 30));
+        jPanel12.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 160, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel12.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 70, -1));
+        cbxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "customer", "admin" }));
+        jPanel12.add(cbxRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, 120, -1));
 
-        jButton4.setText("Delete");
-        jPanel12.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 100, 30));
+        btnDelete.setText("Delete");
+        jPanel12.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 100, 30));
 
-        jButton5.setText("Add");
-        jPanel12.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 100, 30));
+        btnAdd.setText("Add");
+        jPanel12.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 100, 30));
 
-        jButton6.setText("Update");
-        jPanel12.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 100, 30));
+        btnUpdate.setText("Update");
+        jPanel12.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 100, 30));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel31.setText("Manage Users");
         jPanel12.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel32.setText("Email");
-        jPanel12.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
+        lblId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblId.setText("1");
+        jPanel12.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel33.setText("Email");
+        jPanel12.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel34.setText("ID Users : ");
+        jPanel12.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, -1, -1));
 
         add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 320));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rSTableMetro3.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsersDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"K 6425 XA", "Honda", "500000", "3", "Btn", null},
-                {"BA 2225 XA", "Honda", "500000", "3", "Btn", null},
-                {"K 6425 XA", "Honda", "500000", "3", "Btn", null},
-                {"K 6425 XA", "Honda", "500000", null, "Btn", null}
+
             },
             new String [] {
-                "License", "Name", "Quantiity", "Price", "Description", "Categories"
+                "ID", "Name", "Password", "Email", "Phone", "Role"
             }
         ));
-        rSTableMetro3.setColorBordeFilas(new java.awt.Color(0, 112, 192));
-        rSTableMetro3.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 10)); // NOI18N
-        rSTableMetro3.setFuenteFilas(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        rSTableMetro3.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        rSTableMetro3.setFuenteHead(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        rSTableMetro3.setRowHeight(20);
-        jScrollPane3.setViewportView(rSTableMetro3);
+        tblUsersDetail.setColorBordeFilas(new java.awt.Color(0, 112, 192));
+        tblUsersDetail.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 10)); // NOI18N
+        tblUsersDetail.setFuenteFilas(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        tblUsersDetail.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        tblUsersDetail.setFuenteHead(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tblUsersDetail.setRowHeight(20);
+        jScrollPane3.setViewportView(tblUsersDetail);
 
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 680, 170));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 680, 170));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel22.setText("Data Users In Database");
-        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+
+        txtSearch.setText("Search ...");
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 530, -1));
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 90, -1));
 
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 820, 320));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txtPhoneActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtEmailActionPerformed
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    public DefaultTableModel getModel() {
+        return model;
+    }
+
+    public void setModel(DefaultTableModel model) {
+        this.model = model;
+    }
+
+    public JButton getBtnAdd() {
+        return btnAdd;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public JLabel getLblId() {
+        return lblId;
+    }
+
+    public JButton getBtnSearch() {
+        return btnSearch;
+    }
+
+    public JTextField getTxtSearch() {
+        return txtSearch;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cbxRole;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -196,15 +300,18 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private rojerusan.RSTableMetro rSTableMetro3;
+    private javax.swing.JLabel lblId;
+    private rojerusan.RSTableMetro tblUsersDetail;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

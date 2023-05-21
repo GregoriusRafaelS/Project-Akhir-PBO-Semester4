@@ -35,6 +35,8 @@ public class AdminPanelRecordsView extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         rSTableMetro4 = new rojerusan.RSTableMetro();
         jLabel23 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(820, 640));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,10 +75,7 @@ public class AdminPanelRecordsView extends javax.swing.JPanel {
 
         rSTableMetro4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"K 6425 XA", "Honda", "500000", "3", "Btn", null},
-                {"BA 2225 XA", "Honda", "500000", "3", "Btn", null},
-                {"K 6425 XA", "Honda", "500000", "3", "Btn", null},
-                {"K 6425 XA", "Honda", "500000", null, "Btn", null}
+
             },
             new String [] {
                 "Username", "Name car", "Pice", "Start", "End", "Returned"
@@ -90,17 +89,42 @@ public class AdminPanelRecordsView extends javax.swing.JPanel {
         rSTableMetro4.setRowHeight(20);
         jScrollPane4.setViewportView(rSTableMetro4);
 
-        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 680, 170));
+        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 680, 170));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel23.setText("Data Transaction");
         jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
 
+        txtSearch.setText("Search ...");
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 530, -1));
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 90, -1));
+
         add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 820, 320));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JPanel jPanel4;
@@ -109,5 +133,6 @@ public class AdminPanelRecordsView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private rojerusan.RSTableMetro rSTableMetro3;
     private rojerusan.RSTableMetro rSTableMetro4;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

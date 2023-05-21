@@ -44,7 +44,7 @@ public class RegisterController {
                 }else if(!userModel.isValidPhone(phone)){
                     JOptionPane.showMessageDialog(null, "Please Input a valid phone nuber !!", "Message", JOptionPane.ERROR_MESSAGE);
                 }else{
-                    userModel.registerUser(name, password, email, phone);
+                    userModel.registerUser(name, password, email, phone, "customer");
                     JOptionPane.showMessageDialog(null, "Succes Adding new account !!");
                     LoginView loginView = new LoginView();
                     LoginController loginController = new LoginController(userModel, loginView);
@@ -76,7 +76,7 @@ public class RegisterController {
                     registerView.setBtnPass(registerView.getShowPassword());
             }
         });
-        
+
     }
     
     

@@ -5,6 +5,16 @@
  */
 package view;
 
+import controller.ManageVehicleController;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import rojerusan.RSTableMetro;
+
 /**
  *
  * @author TUF GAMING
@@ -14,9 +24,68 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
     /**
      * Creates new form AdminPanelVehicleView
      */
+    
+    DefaultTableModel model;
     public AdminPanelVehicleView() {
         initComponents();
+        
+        ManageVehicleController controller = new ManageVehicleController(this, model);
+        controller.setVehicleDetailToTable();
     }
+
+    public JButton getBtnAdd() {
+        return btnAdd;
+    }
+    
+    public JButton getBtnSearch() {
+        return btnSearch;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public JComboBox<String> getCbxCategories() {
+        return cbxCategories;
+    }
+
+    public JTextArea getFldDescription() {
+        return fldDescription;
+    }
+
+    public JLabel getLblLicense() {
+        return lblLicense;
+    }
+
+    public JTextField getFldName() {
+        return fldName;
+    }
+
+    public JTextField getFldPrice() {
+        return fldPrice;
+    }
+
+    public JTextField getFldQuantity() {
+        return fldQuantity;
+    }
+
+    public JPanel getPnlVehicleView() {
+        return pnlVehicleView;
+    }
+
+    public RSTableMetro getTblVehicleDetail() {
+        return tblVehicleDetail;
+    }
+
+    public JTextField getTxtSearch() {
+        return txtSearch;
+    }
+
+    public JLabel getLblIdType() {
+        return lblIdType;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,30 +125,33 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        rSTableMetro3 = new rojerusan.RSTableMetro();
+        tblVehicleDetail = new rojerusan.RSTableMetro();
         jLabel22 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        fldName = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        fldPrice = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        fldQuantity = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        fldDescription = new javax.swing.JTextArea();
+        cbxCategories = new javax.swing.JComboBox<>();
+        btnAdd = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblIdType = new javax.swing.JLabel();
+        lblLicense = new javax.swing.JLabel();
 
         pnlVehicleView.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -208,30 +280,43 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rSTableMetro3.setModel(new javax.swing.table.DefaultTableModel(
+        tblVehicleDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"K 6425 XA", "Honda", "500000", "3", "Btn", null},
-                {"BA 2225 XA", "Honda", "500000", "3", "Btn", null},
-                {"K 6425 XA", "Honda", "500000", "3", "Btn", null},
-                {"K 6425 XA", "Honda", "500000", null, "Btn", null}
+
             },
             new String [] {
                 "License", "Name", "Quantiity", "Price", "Description", "Categories"
             }
         ));
-        rSTableMetro3.setColorBordeFilas(new java.awt.Color(0, 112, 192));
-        rSTableMetro3.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 10)); // NOI18N
-        rSTableMetro3.setFuenteFilas(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        rSTableMetro3.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        rSTableMetro3.setFuenteHead(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        rSTableMetro3.setRowHeight(20);
-        jScrollPane3.setViewportView(rSTableMetro3);
+        tblVehicleDetail.setColorBordeFilas(new java.awt.Color(0, 112, 192));
+        tblVehicleDetail.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 10)); // NOI18N
+        tblVehicleDetail.setFuenteFilas(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        tblVehicleDetail.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        tblVehicleDetail.setFuenteHead(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tblVehicleDetail.setRowHeight(20);
+        jScrollPane3.setViewportView(tblVehicleDetail);
 
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 680, 170));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 680, 170));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel22.setText("Data Vehicle In Database");
         jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+
+        txtSearch.setText("Search ...");
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 530, -1));
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 90, -1));
 
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 820, 320));
 
@@ -241,86 +326,87 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         jLabel5.setText("License");
         jPanel12.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel12.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 170, 30));
-
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
-        jPanel12.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
+        jPanel12.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 30, 30));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel23.setText("Name");
         jPanel12.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        fldName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                fldNameActionPerformed(evt);
             }
         });
-        jPanel12.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 170, 30));
+        jPanel12.add(fldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 170, 30));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
-        jPanel12.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 30, 30));
+        jPanel12.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 30, 30));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel25.setText("Price");
         jPanel12.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        fldPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                fldPriceActionPerformed(evt);
             }
         });
-        jPanel12.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 170, 30));
+        jPanel12.add(fldPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 170, 30));
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
-        jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 30, 30));
+        jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 30, 30));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel27.setText("Quantity");
-        jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
+        jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
-        jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 30, 30));
+        jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 30, 30));
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        fldQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                fldQuantityActionPerformed(evt);
             }
         });
-        jPanel12.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 160, 30));
+        jPanel12.add(fldQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 160, 30));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel29.setText("Description");
-        jPanel12.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
+        jPanel12.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
-        jPanel12.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 30, 30));
+        jPanel12.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 30, 30));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
+        fldDescription.setColumns(20);
+        fldDescription.setRows(5);
+        jScrollPane4.setViewportView(fldDescription);
 
-        jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 190, 110));
+        jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 210, 70));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel12.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 70, -1));
+        cbxCategories.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "car", "motorcycle" }));
+        jPanel12.add(cbxCategories, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 70, -1));
 
-        jButton4.setText("Delete");
-        jPanel12.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 100, 30));
+        btnAdd.setText("Add");
+        jPanel12.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 100, 30));
 
-        jButton5.setText("Add");
-        jPanel12.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 100, 30));
-
-        jButton6.setText("Update");
-        jPanel12.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 100, 30));
+        btnUpdate.setText("Update");
+        jPanel12.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 100, 30));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel31.setText("Manage Data Vehicle");
         jPanel12.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("ID Type :");
+        jPanel12.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, -1));
+
+        lblIdType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblIdType.setText("0");
+        jPanel12.add(lblIdType, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, -1));
+
+        lblLicense.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel12.add(lblLicense, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 170, 30));
 
         add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 320));
     }// </editor-fold>//GEN-END:initComponents
@@ -341,33 +427,42 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void fldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_fldNameActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void fldPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_fldPriceActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void fldQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldQuantityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_fldQuantityActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cbxCategories;
+    private javax.swing.JTextArea fldDescription;
+    private javax.swing.JTextField fldName;
+    private javax.swing.JTextField fldPrice;
+    private javax.swing.JTextField fldQuantity;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -401,17 +496,15 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel lblIdType;
+    private javax.swing.JLabel lblLicense;
     private javax.swing.JPanel pnlVehicleView;
     private rojerusan.RSTableMetro rSTableMetro2;
-    private rojerusan.RSTableMetro rSTableMetro3;
+    private rojerusan.RSTableMetro tblVehicleDetail;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
