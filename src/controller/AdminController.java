@@ -67,13 +67,6 @@ public class AdminController{
           });
                   
           
-        adminHomeView.getLblRecordsView().addMouseListener(new MouseAdapter(){
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                AdminPanelRecordsView adminPanelRecordsView = new AdminPanelRecordsView();
-                switchPanels(adminPanelRecordsView);
-              }
-          });
         
         adminHomeView.getLblRecordsView().addMouseListener(new MouseAdapter(){
             @Override

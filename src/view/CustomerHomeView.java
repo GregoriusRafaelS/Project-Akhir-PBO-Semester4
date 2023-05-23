@@ -28,13 +28,18 @@ public class CustomerHomeView extends javax.swing.JFrame {
         initComponents();
         this.customerModel = customerModel;
         
-        customerPanelCarsView = new CustomerPanelCarsView();
+        customerPanelCarsView = new CustomerPanelCarsView(customerModel);
         
         getContentPane().setLayout(new AbsoluteLayout());
         getContentPane().add(jPanel3, new AbsoluteConstraints(0, 0, 210, 700));
         getContentPane().add(customerPanelCarsView, new AbsoluteConstraints(210, 0, 790, 700)); 
+        System.out.print(customerModel.getId());
     }
 
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+    
     public JButton getBtnHistory() {
         return btnHistory;
     }
@@ -67,9 +72,10 @@ public class CustomerHomeView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        btnHistory = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         btnList = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
+        btnHistory = new javax.swing.JButton();
         pnlDefaultAdmin = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,9 +95,9 @@ public class CustomerHomeView extends javax.swing.JFrame {
         jLabel18.setText("Car Rental ");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 60));
 
-        btnHistory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnHistory.setText("History Payment");
-        jPanel3.add(btnHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 180, 40));
+        btnLogout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnLogout.setText("Log Out");
+        jPanel3.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 180, 40));
 
         btnList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnList.setText("Vehicle List");
@@ -100,6 +106,10 @@ public class CustomerHomeView extends javax.swing.JFrame {
         btnReturn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnReturn.setText("Returned Vehicle");
         jPanel3.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 180, 40));
+
+        btnHistory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnHistory.setText("History Payment");
+        jPanel3.add(btnHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 180, 40));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 700));
 
@@ -118,6 +128,7 @@ public class CustomerHomeView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHistory;
     private javax.swing.JButton btnList;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel5;

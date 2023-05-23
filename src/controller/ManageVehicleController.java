@@ -54,7 +54,7 @@ public class ManageVehicleController {
                 adminPanelVehicleView.getFldPrice().setText(model.getValueAt(rowNo, 3).toString());
                 adminPanelVehicleView.getFldDescription().setText(model.getValueAt(rowNo, 4).toString());
                 adminPanelVehicleView.getCbxCategories().setSelectedItem(model.getValueAt(rowNo, 5).toString());
-                adminPanelVehicleView.getLblIdType().setText(String.valueOf(vehicleModel.searchVehicleByLicense(adminPanelVehicleView.getLblLicense().getText()).getId_type()));
+                adminPanelVehicleView.getLblIdType().setText(String.valueOf(vehicleModel.searchVehicleByLicense("id_vehicle", adminPanelVehicleView.getLblLicense().getText())[0].getId_type()));
                 qtyBefore= Integer.parseInt(adminPanelVehicleView.getFldQuantity().getText());
             }   
         });
@@ -121,7 +121,7 @@ public class ManageVehicleController {
             @Override
             public void actionPerformed(ActionEvent arg0) {        
                 String license = adminPanelVehicleView.getTxtSearch().getText();
-                VehicleModel vehicle = vehicleModel.searchVehicleByLicense(license);
+                VehicleModel vehicle = vehicleModel.searchVehicleByLicense("id_vehicle", license)[0];
                 clearVehicleTable();
                 
                 final DefaultTableModel model = (DefaultTableModel) adminPanelVehicleView.getTblVehicleDetail().getModel();

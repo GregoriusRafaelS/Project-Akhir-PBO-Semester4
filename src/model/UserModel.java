@@ -302,6 +302,6 @@ public class UserModel extends DatabaseConnector{
         return updated_at;
     }
     
-    
+   
     
 }

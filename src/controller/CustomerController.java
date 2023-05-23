@@ -17,8 +17,9 @@ import view.AdminHomesView;
 import view.AdminPanelRecordsView;
 import view.CustomerHomeView;
 import view.CustomerPanelCarsView;
-import view.CustomerPanelPaymentView;
+import view.CustomerPanelHistoryView;
 import view.CustomerPanelReturnView;
+import view.LoginView;
 
 /**
  *
@@ -27,23 +28,26 @@ import view.CustomerPanelReturnView;
 public class CustomerController {
     CustomerHomeView customerHomeView;
     
-    UserModel userModel = new UserModel(0, "", "", "", "", "", "", "");
+    CustomerModel customerModel;
     public CustomerController(CustomerModel customerModel, CustomerHomeView customerHomeView){
-        this.userModel = customerModel;
+        this.customerModel = customerModel;
         this.customerHomeView = customerHomeView;
-        
+        System.out.println(customerModel.getPhone());
+
+
         customerHomeView.getBtnList().addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent arg0){
-            CustomerPanelCarsView customerPanelCarsView = new CustomerPanelCarsView();
+            public void actionPerformed(ActionEvent arg0){ 
+            CustomerPanelCarsView customerPanelCarsView = new CustomerPanelCarsView(customerModel);
             switchPanels(customerPanelCarsView);
+                     System.out.println(customerModel.getId());
           }
         });
         
         customerHomeView.getBtnReturn().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0){
-            CustomerPanelReturnView customerPanelReturnView = new CustomerPanelReturnView();
+           CustomerPanelReturnView customerPanelReturnView = new CustomerPanelReturnView();
             switchPanels(customerPanelReturnView);
           }
         });
@@ -51,9 +55,18 @@ public class CustomerController {
         customerHomeView.getBtnHistory().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0){
-            CustomerPanelPaymentView customerPanelPaymentView = new CustomerPanelPaymentView();
-            switchPanels(customerPanelPaymentView);
+            CustomerPanelHistoryView customerPanelHistoryView = new CustomerPanelHistoryView(customerModel);
+            switchPanels(customerPanelHistoryView);
           }
+        });
+        
+        customerHomeView.getBtnLogout().addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                  LoginView loginView = new LoginView();
+                  LoginController loginController = new LoginController(customerModel, loginView);
+                  customerHomeView.dispose();
+              }
         });
     }
     

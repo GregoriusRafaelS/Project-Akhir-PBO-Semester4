@@ -5,6 +5,8 @@
  */
 package view;
 
+import model.CustomerModel;
+
 /**
  *
  * @author TUF GAMING
@@ -16,6 +18,7 @@ public class CustomerPanelReturnView extends javax.swing.JPanel {
      */
     public CustomerPanelReturnView() {
         initComponents();
+        
     }
 
     /**
@@ -50,7 +53,7 @@ public class CustomerPanelReturnView extends javax.swing.JPanel {
         tblVehicleDetail.setRowHeight(20);
         jScrollPane3.setViewportView(tblVehicleDetail);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 730, 410));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 730, 560));
 
         jLabel19.setFont(new java.awt.Font("Exotc350 Bd BT", 1, 24)); // NOI18N
         jLabel19.setText("Return of The Rental Vehicle");

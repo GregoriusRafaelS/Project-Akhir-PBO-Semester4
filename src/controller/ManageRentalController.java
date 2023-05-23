@@ -32,7 +32,7 @@ public class ManageRentalController {
             @Override
             public void actionPerformed(ActionEvent arg0) {        
                 String license = adminPanelRecordsView.getTxtSearch().getText();
-                VehicleModel vehicle = vehicleModel.searchVehicleByLicense(license);
+                VehicleModel vehicle = vehicleModel.searchVehicleByLicense("id_vehicle", license)[0];
                 clearVehicleTable();
                 
                 final DefaultTableModel model = (DefaultTableModel) adminPanelRecordsView.getTblRecordsDetail().getModel();
@@ -61,8 +61,8 @@ public class ManageRentalController {
     }
     
     public void setRecordsDetailToTable(){
-        RentalModel rentalModel = new RentalModel(0, "", "", "", "", "");
-        RentalModel[] rental = rentalModel.putAllData();
+        RentalModel rentalModel = new RentalModel(0, 0, "", "", "", "", "");
+        RentalModel[] rental = rentalModel.putAllData(query, "all");
         int i=0;
         int price;
         String id_vehicle, username, start_rental, end_rental,  return_date;
@@ -93,4 +93,11 @@ public class ManageRentalController {
         this.model = model;
     }
 
+    String query = "SELECT j.name, i.id_rental, "
+            + "i.price, i.id_vehicle, "
+            + "i.start_rental, "
+            + "i.end_rental, "
+            + "i.returned_date "
+            + "FROM rental i "
+            + "INNER JOIN users j ON i.id_user = j.id_user";
 }

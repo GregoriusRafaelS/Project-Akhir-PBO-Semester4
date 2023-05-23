@@ -46,9 +46,9 @@ public class LoginController {
                     JOptionPane.showMessageDialog(null, "Login Success");
                     
                     CustomerModel customerModel = new CustomerModel(userModel.getId(), userModel.getName(), userModel.getPass(), userModel.getEmail(), userModel.getPhone(), userModel.getRole(), userModel.getCreated_at(), userModel.getUpdated_at());
-                    CustomerHomeView customerCarsView = new CustomerHomeView(customerModel);
-                    customerCarsView.show();
-                    CustomerController customerController = new CustomerController(customerModel, customerCarsView);
+                    CustomerHomeView customerHomeView = new CustomerHomeView(customerModel);
+                    customerHomeView.show();
+                    CustomerController customerController = new CustomerController(customerModel, customerHomeView);
                     loginView.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "Failed Login");

@@ -5,8 +5,14 @@
  */
 package view;
 
+import controller.ManagePaymentController;
 import controller.ManageRentalController;
+import java.awt.Button;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import model.CustomerModel;
+import rojerusan.RSTableMetro;
 
 /**
  *
@@ -18,13 +24,30 @@ public class CustomerPanelCarsView extends javax.swing.JPanel {
      * Creates new form CustomerPanelCarView
      */
     DefaultTableModel model;
-    public CustomerPanelCarsView() {
+    CustomerModel customerModel;
+    public CustomerPanelCarsView(CustomerModel customerModel) {
         initComponents();
+        this.customerModel = customerModel;
         
-//        ManagePaymentController controller = new ManagePaymentController(this, model);
-//        controller.setRecordsDetailToTable();
+        ManagePaymentController controller = new ManagePaymentController(this, customerModel, model);
+        controller.setVehicleDetailToTable();
+        System.out.println(customerModel.getId());
+;
     }
 
+    public JButton getBtnSearch() {
+        return btnSearch;
+    }
+
+    public JTextField getTxtSearch() {
+        return txtSearch;
+    }
+
+    public RSTableMetro getTblVehicleDetail() {
+        return tblVehicleDetail;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,8 +58,8 @@ public class CustomerPanelCarsView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel19 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblVehicleDetail = new rojerusan.RSTableMetro();
         jLabel1 = new javax.swing.JLabel();
@@ -52,22 +75,22 @@ public class CustomerPanelCarsView extends javax.swing.JPanel {
         jLabel19.setText("Vehicle LIST");
         add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jButton1.setText("Search");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 90, -1));
+        btnSearch.setText("Search");
+        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 90, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtSearchActionPerformed(evt);
             }
         });
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 610, -1));
+        add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 610, -1));
 
         tblVehicleDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "License", "Name", "Quantiity", "Price", "Description", "Categories", "Rental"
+                "License", "Name", "Quantiity", "Price", "Description", "Categories", "Action"
             }
         ));
         tblVehicleDetail.setColorBordeFilas(new java.awt.Color(0, 112, 192));
@@ -100,21 +123,21 @@ public class CustomerPanelCarsView extends javax.swing.JPanel {
         add(rSDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 250, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private rojeru_san.componentes.RSDateChooser rSDateChooser1;
     private rojeru_san.componentes.RSDateChooser rSDateChooser2;
     private rojerusan.RSTableMetro tblVehicleDetail;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

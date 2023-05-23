@@ -55,7 +55,7 @@ public class VehicleModel extends DatabaseConnector {
         int i = 0;
         
         try {
-            String query = "SELECT i.id_vehicle, i.id_type, "
+            String query = "SELECT i.id_vehicle, i.id_type, j.id_type, "
                                 + "j.name, j.price, "
                                 + "j.description, "
                                 + "j.availability, "
@@ -165,8 +165,10 @@ public class VehicleModel extends DatabaseConnector {
         } 
     }
     
-    public VehicleModel searchVehicleByLicense(String license){
-        VehicleModel vehicle =  new VehicleModel(0, 0, 0, "", "", "", "");
+    public VehicleModel[] searchVehicleByLicense(String key, String value){
+        String point = key.equals("id_vehicle") ? "i" : "j"; int i=0;
+        
+        VehicleModel[] vehicle = new VehicleModel[10];
         try {
             String query = "SELECT i.id_vehicle, "
                                 + "j.name, j.price, "
@@ -176,22 +178,23 @@ public class VehicleModel extends DatabaseConnector {
                                 + "j.id_type "
                                 + "FROM vehicle i "
                                 + "INNER JOIN type j ON i.id_type = j.id_type "
-                                + "WHERE i.id_vehicle = '" + license +"'";
+                                + "WHERE " + point + "." + key + " = '" + value +"'";
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             
             if (resultSet.next()) {
-                license = (resultSet.getString("Id_vehicle"));
-                name = (resultSet.getString("name"));
-                quantity = (resultSet.getInt("availability"));
-                price = (resultSet.getInt("price"));
-                description = (resultSet.getString("description"));
-                categories = (resultSet.getString("categories"));
-                id_type = (resultSet.getInt("id_type"));
-
-               
+                do{
+                    id_vehicle = (resultSet.getString("Id_vehicle"));
+                    name = (resultSet.getString("name"));
+                    quantity = (resultSet.getInt("availability"));
+                    price = (resultSet.getInt("price"));
+                    description = (resultSet.getString("description"));
+                    categories = (resultSet.getString("categories"));
+                    id_type = (resultSet.getInt("id_type"));
+                    vehicle[i] = new VehicleModel(id_type, price, quantity, id_vehicle, categories, name, description); i++;
+                }while(resultSet.next());
             } else{
-                license = null;
+                id_vehicle = null;
                 name = null;
                 quantity = 0;
                 price =  0;
@@ -199,13 +202,6 @@ public class VehicleModel extends DatabaseConnector {
                 categories = null;
                 id_type = 0;
             }
-            vehicle.setId_vehicle(license);
-            vehicle.setName(name);
-            vehicle.setQuantity(quantity);
-            vehicle.setPrice(price);
-            vehicle.setDescription(description);
-            vehicle.setCategories(categories);
-            vehicle.setId_type(id_type);
 
             statement.close();
             resultSet.close();
