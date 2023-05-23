@@ -11,9 +11,8 @@ import javax.swing.JOptionPane;
 import model.AdminModel;
 import model.CustomerModel;
 import model.UserModel;
-import view.AdminHomeView;
 import view.AdminHomesView;
-import view.CustomerCarsView;
+import view.CustomerHomeView;
 import view.LoginView;
 import view.RegisterView;
 
@@ -47,7 +46,7 @@ public class LoginController {
                     JOptionPane.showMessageDialog(null, "Login Success");
                     
                     CustomerModel customerModel = new CustomerModel(userModel.getId(), userModel.getName(), userModel.getPass(), userModel.getEmail(), userModel.getPhone(), userModel.getRole(), userModel.getCreated_at(), userModel.getUpdated_at());
-                    CustomerCarsView customerCarsView = new CustomerCarsView(customerModel);
+                    CustomerHomeView customerCarsView = new CustomerHomeView(customerModel);
                     customerCarsView.show();
                     CustomerController customerController = new CustomerController(customerModel, customerCarsView);
                     loginView.dispose();

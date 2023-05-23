@@ -6,6 +6,7 @@
 package view;
 
 import controller.AdminController;
+import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import model.AdminModel;
@@ -23,17 +24,18 @@ public class AdminHomesView extends javax.swing.JFrame {
     */
     AdminModel adminModel;
     AdminPanelHomeView adminPanelHomeView; 
-    AdminController adminController;
-    
+    Color mouseEnterColor = new Color(0, 0, 0);
+    Color mouseExitColor = new Color(51, 51, 51);
+
     public AdminHomesView(AdminModel adminModel) {
         initComponents();
         this.adminModel = adminModel;
         adminPanelHomeView = new AdminPanelHomeView();
         
         getContentPane().setLayout(new AbsoluteLayout());
-        getContentPane().add(jPanel1, new AbsoluteConstraints(0, 0, 1000, 60)); // Gantikan x, y, width, height dengan nilai yang sesuai
-        getContentPane().add(jPanel4, new AbsoluteConstraints(0, 60, 180, 640)); // Gantikan x, y, width, height dengan nilai yang sesuai
-        getContentPane().add(adminPanelHomeView, new AbsoluteConstraints(180, 60, 820, 640)); // Gantikan x, y, width, height dengan nilai yang sesuai
+        getContentPane().add(jPanel1, new AbsoluteConstraints(0, 0, 1000, 60)); 
+        getContentPane().add(jPanel4, new AbsoluteConstraints(0, 60, 180, 640)); 
+        getContentPane().add(adminPanelHomeView, new AbsoluteConstraints(180, 60, 820, 640)); 
 
     }
     
@@ -128,6 +130,14 @@ public class AdminHomesView extends javax.swing.JFrame {
         lblUsersView.setForeground(new java.awt.Color(251, 251, 251));
         lblUsersView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
         lblUsersView.setText("Manage Users");
+        lblUsersView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblUsersViewMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblUsersViewMouseExited(evt);
+            }
+        });
         jPanel6.add(lblUsersView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 130, -1));
 
         jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 180, 40));
@@ -140,6 +150,14 @@ public class AdminHomesView extends javax.swing.JFrame {
         lblLogoutView.setForeground(new java.awt.Color(251, 251, 251));
         lblLogoutView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/LogOut.png"))); // NOI18N
         lblLogoutView.setText("Log Out");
+        lblLogoutView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblLogoutViewMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblLogoutViewMouseExited(evt);
+            }
+        });
         jPanel9.add(lblLogoutView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 130, -1));
 
         jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 180, 40));
@@ -152,6 +170,14 @@ public class AdminHomesView extends javax.swing.JFrame {
         lblRecordsView.setForeground(new java.awt.Color(251, 251, 251));
         lblRecordsView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dashboard.png"))); // NOI18N
         lblRecordsView.setText("View Records");
+        lblRecordsView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRecordsViewMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblRecordsViewMouseExited(evt);
+            }
+        });
         jPanel8.add(lblRecordsView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 130, -1));
 
         jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 180, 40));
@@ -164,6 +190,14 @@ public class AdminHomesView extends javax.swing.JFrame {
         lblVehicleView.setForeground(new java.awt.Color(251, 251, 251));
         lblVehicleView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataVehicle.png"))); // NOI18N
         lblVehicleView.setText("Manage Vehicle");
+        lblVehicleView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblVehicleViewMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblVehicleViewMouseExited(evt);
+            }
+        });
         pnlVehicleView.add(lblVehicleView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 140, -1));
 
         jPanel4.add(pnlVehicleView, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 180, 40));
@@ -176,6 +210,14 @@ public class AdminHomesView extends javax.swing.JFrame {
         lblDashboardView.setForeground(new java.awt.Color(251, 251, 251));
         lblDashboardView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dashboard.png"))); // NOI18N
         lblDashboardView.setText("Dashboard");
+        lblDashboardView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDashboardViewMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDashboardViewMouseExited(evt);
+            }
+        });
         jPanel7.add(lblDashboardView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 140, -1));
 
         jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 180, 40));
@@ -195,41 +237,49 @@ public class AdminHomesView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblDashboardViewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardViewMouseEntered
+        jPanel7.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_lblDashboardViewMouseEntered
+
+    private void lblDashboardViewMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardViewMouseExited
+        jPanel7.setBackground(mouseExitColor);
+    }//GEN-LAST:event_lblDashboardViewMouseExited
+
+    private void lblVehicleViewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVehicleViewMouseEntered
+        pnlVehicleView.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_lblVehicleViewMouseEntered
+
+    private void lblVehicleViewMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVehicleViewMouseExited
+        pnlVehicleView.setBackground(mouseExitColor);
+    }//GEN-LAST:event_lblVehicleViewMouseExited
+
+    private void lblUsersViewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUsersViewMouseEntered
+        jPanel6.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_lblUsersViewMouseEntered
+
+    private void lblUsersViewMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUsersViewMouseExited
+        jPanel6.setBackground(mouseExitColor);
+    }//GEN-LAST:event_lblUsersViewMouseExited
+
+    private void lblRecordsViewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecordsViewMouseEntered
+        jPanel8.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_lblRecordsViewMouseEntered
+
+    private void lblRecordsViewMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecordsViewMouseExited
+        jPanel8.setBackground(mouseExitColor);
+    }//GEN-LAST:event_lblRecordsViewMouseExited
+
+    private void lblLogoutViewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutViewMouseEntered
+        jPanel9.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_lblLogoutViewMouseEntered
+
+    private void lblLogoutViewMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutViewMouseExited
+        jPanel9.setBackground(mouseExitColor);
+    }//GEN-LAST:event_lblLogoutViewMouseExited
+
     /**
      * @param args the command line arguments
      */
-    public void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminHomesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminHomesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminHomesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminHomesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-
-                new AdminHomesView(adminModel).setVisible(true);
-            }
-        });
-    }
 
     public JLabel getLblVehicleView() {
         return lblVehicleView;
