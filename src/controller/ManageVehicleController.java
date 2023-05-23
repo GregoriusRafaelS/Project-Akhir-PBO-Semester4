@@ -15,12 +15,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.awt.event.MouseEvent;
-import model.AdminModel;
 import model.VehicleModel;
-import view.AdminHomeView;
 import view.AdminHomesView;
 import view.AdminPanelVehicleView;
-//import view.AdminSetVehicleView;
+import view.AdminSetVehicleView;
 
 /**
  *
@@ -39,11 +37,10 @@ public class ManageVehicleController {
         this.model = model;
     }
     
-    public ManageVehicleController(AdminPanelVehicleView adminPanelVehicleView, DefaultTableModel model) {
+    public ManageVehicleController(AdminHomesView adminHomeView, AdminPanelVehicleView adminPanelVehicleView, DefaultTableModel model) {
         this.model = model;
         this.adminPanelVehicleView = adminPanelVehicleView;
-//        this.adminHomeView = adminHomeView;
-
+        this.adminHomeView = adminHomeView;
         
         adminPanelVehicleView.getTblVehicleDetail().addMouseListener(new MouseAdapter(){
             @Override
@@ -58,14 +55,14 @@ public class ManageVehicleController {
                 adminPanelVehicleView.getFldDescription().setText(model.getValueAt(rowNo, 4).toString());
                 adminPanelVehicleView.getCbxCategories().setSelectedItem(model.getValueAt(rowNo, 5).toString());
                 adminPanelVehicleView.getLblIdType().setText(String.valueOf(vehicleModel.searchVehicleByLicense(adminPanelVehicleView.getLblLicense().getText()).getId_type()));
-//              qtyBefore= Integer.parseInt(adminPanelVehicleView.getFldQuantity().getText());
-            }
+                qtyBefore= Integer.parseInt(adminPanelVehicleView.getFldQuantity().getText());
+            }   
         });
         
         adminPanelVehicleView.getBtnAdd().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println(String.valueOf(vehicleModel.searchVehicleByLicense(adminPanelVehicleView.getLblLicense().getText()).getId_type()));
+                int id_type;
                 String name = adminPanelVehicleView.getFldName().getText();
                 String quantity = adminPanelVehicleView.getFldQuantity().getText();
                 String price = adminPanelVehicleView.getFldPrice().getText();
@@ -79,15 +76,13 @@ public class ManageVehicleController {
                 }else if(!vehicleModel.isValidQuantity(Integer.parseInt(quantity))){
                     JOptionPane.showMessageDialog(null, "You'r quantity vehicle can't negative number", "Message", JOptionPane.ERROR_MESSAGE);
                 }else{
-                    vehicleModel.addType(name, description, Integer.parseInt(price), Integer.parseInt(quantity));
-                    JOptionPane.showMessageDialog(null, "Succes Adding new type !!");
-                    
-                    //pindah page setLicense sebanyak qty
-//                    AdminSetVehicleView adminSetVehicleView = new AdminSetVehicleView(Integer.parseInt(quantity));
+                    id_type = vehicleModel.addType(name, description, Integer.parseInt(price), Integer.parseInt(quantity));
+                    JOptionPane.showMessageDialog(null, "Succes Adding new type !!");                    
 //                    adminHomeView.dispose();
-//                    adminSetVehicleView.show();
-//                    SetVehicleController setVehicleController = new SetVehicleController(Integer.parseInt(quantity), adminSetVehicleView);
-//                    setVehicleController.updateVehicle(Integer.parseInt(quantity));
+                    AdminSetVehicleView adminSetVehicle = new AdminSetVehicleView(Integer.parseInt(quantity));
+                    SetVehicleController adminSetVehicleController = new SetVehicleController(Integer.parseInt(quantity), adminSetVehicle, categories, id_type);
+                    clearVehicleTable();
+                    setVehicleDetailToTable();
                 }
             }
         });  
@@ -107,19 +102,15 @@ public class ManageVehicleController {
                     JOptionPane.showMessageDialog(null, "Please Enter fill You'r form !!", "Message", JOptionPane.ERROR_MESSAGE);
                 }else if(!vehicleModel.isValidName(name)){
                     JOptionPane.showMessageDialog(null, "Use another name !!", "Message", JOptionPane.ERROR_MESSAGE);
-                }else if(!vehicleModel.isValidQuantity(Integer.parseInt(quantity))){
-                    JOptionPane.showMessageDialog(null, "Your password must meet the following criteria : \n Must have at least one numeric character \n Must have at least one lowercase character \n Must have at least one uppercase character \n Must have at least one special symbol among @#$% \n Password length should be between 8 and 20", "Message", JOptionPane.ERROR_MESSAGE);
+                }else if(!vehicleModel.isValidQuantity(Integer.parseInt(quantity)) || Integer.parseInt(quantity) <= qtyBefore){
+                    JOptionPane.showMessageDialog(null, "Failed Updating vehicle, check you'r quantity !!", "Message", JOptionPane.ERROR_MESSAGE);
                 }else{
+                    vehicleModel.updateType(name, description, Integer.parseInt(price), Integer.parseInt(quantity), id_type);
                     JOptionPane.showMessageDialog(null, "Succes Updating vehicle !!");
-                    
-                    if(Integer.parseInt(quantity) <= qtyBefore){
-                        JOptionPane.showMessageDialog(null, "Failed Updating vehicle, check you'r quantity !!");
-                    }else {
-                        vehicleModel.updateType(name, description, Integer.parseInt(price), Integer.parseInt(quantity), id_type);
-                        JOptionPane.showMessageDialog(null, "Succes Updating vehicle !!");
-
-                    }
-                    
+//                    adminHomeView.dispose();
+                    int qty = Integer.parseInt(quantity) - qtyBefore;
+                    AdminSetVehicleView adminSetVehicle = new AdminSetVehicleView(qty);
+                    SetVehicleController adminSetVehicleController = new SetVehicleController(qty, adminSetVehicle, categories, id_type);
                     clearVehicleTable();
                     setVehicleDetailToTable();
                 }
@@ -182,7 +173,5 @@ public class ManageVehicleController {
        DefaultTableModel model = (DefaultTableModel)adminPanelVehicleView.getTblVehicleDetail().getModel(); 
        model.setRowCount(0);
    }
-   
-   
-   
+
 }

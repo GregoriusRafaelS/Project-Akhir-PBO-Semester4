@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -65,8 +66,6 @@ public class VehicleModel extends DatabaseConnector {
             ResultSet resultSet = statement.executeQuery(query);
    
             while(resultSet.next()){
-                System.out.println(resultSet.getString("j.name"));
-
                 vehicle[i] = new VehicleModel(resultSet.getInt("i.id_type"), resultSet.getInt("j.price"), resultSet.getInt("j.availability"), resultSet.getString("i.id_vehicle"), resultSet.getString("i.categories"), resultSet.getString("j.name"), resultSet.getString("j.description"));
                 i++;
             }
@@ -82,7 +81,7 @@ public class VehicleModel extends DatabaseConnector {
     
     public Object[][] putAllData(String data){
         int amtData = amtData(data);
-        Object[][] obj = new Object[amtData][6];
+        Object[][] obj = new Object[amtData][5];
 
         int i = 0;
         
@@ -117,8 +116,8 @@ public class VehicleModel extends DatabaseConnector {
         return obj;
     }
     
-    public void addType(String name, String description, int price, int quantity){
-
+    public int addType(String name, String description, int price, int quantity){
+        int last_id = 0;
         try {
             String query = "INSERT INTO `type`"
                     + "(`name`, `description`, `price`, `availability`) "
@@ -130,20 +129,29 @@ public class VehicleModel extends DatabaseConnector {
                     + ")";
             
             statement = connection.createStatement();
+            
             statement.executeUpdate(query);
+            
+            ResultSet resultSet = statement.executeQuery("SELECT LAST_INSERT_ID() as last_id");
+            
+            if (resultSet.next()) {
+                last_id = resultSet.getInt("last_id");
+                System.out.println(last_id);
+            }
             
             statement.close();
             
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
-
+        return last_id;
     }
     
     public void updateType(String name, String description, int price, int quantity, int id_type){
         try {
             String query = "UPDATE `type` SET "
-                                + "`description` = '" + description
+                                + "`name` = '" + name
+                                + "', `description` = '" + description
                                 + "', `price` = " + price
                                 + ", `availability` = " + quantity
                                 + " WHERE `id_type` = '" + id_type + "'";
@@ -208,6 +216,22 @@ public class VehicleModel extends DatabaseConnector {
         return vehicle;
     }
     
+    public void addsVehicle(List<String> license, String categories, int id_type) {
+        try {
+            for (String licenseValue : license) {
+                String query = "INSERT INTO `vehicle` SET "
+                                + "`id_vehicle` = '" + licenseValue + "', "
+                                + "`categories` = '" + categories + "', "
+                                + "`id_type` = " + id_type;
+                statement = connection.createStatement();
+                statement.executeUpdate(query);
+                statement.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+    }
+    
     public boolean isValidLicense(String license){
         String regex = "^[A-Z]{1,2}\\s\\d{1,4}\\s[A-Z]{1,3}$";  
 
@@ -226,7 +250,7 @@ public class VehicleModel extends DatabaseConnector {
     public boolean isValidName(String name){   
         Object[][] type = putAllData("type");
         for(int i=0;i<type.length;i++){  
-            if(type[i].equals(name)){  
+            if(type[i][1].equals(name)){  
                 return false;    
             }    
         }    

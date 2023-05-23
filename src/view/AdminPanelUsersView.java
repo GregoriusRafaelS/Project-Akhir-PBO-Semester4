@@ -170,7 +170,7 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         jPanel12.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         lblId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblId.setText("1");
+        lblId.setText("-");
         jPanel12.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -202,7 +202,7 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         tblUsersDetail.setRowHeight(20);
         jScrollPane3.setViewportView(tblUsersDetail);
 
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 680, 170));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 680, 170));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel22.setText("Data Users In Database");
@@ -214,7 +214,7 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
                 txtSearchActionPerformed(evt);
             }
         });
-        jPanel4.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 530, -1));
+        jPanel4.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 530, -1));
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +222,7 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
-        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 90, -1));
+        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 90, -1));
 
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 820, 320));
     }// </editor-fold>//GEN-END:initComponents

@@ -5,9 +5,12 @@
  */
 package view;
 
+import controller.AdminController;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import model.AdminModel;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
@@ -19,13 +22,19 @@ public class AdminHomesView extends javax.swing.JFrame {
      * Creates new form AdminHomesView
     */
     AdminModel adminModel;
-//    GridBagLayout layout = new GridBagLayout();
-//    AdminPanelHomeView APHome;
-//    AdminPanelVehicleView APVehicle;;
+    AdminPanelHomeView adminPanelHomeView; 
+    AdminController adminController;
     
     public AdminHomesView(AdminModel adminModel) {
         initComponents();
         this.adminModel = adminModel;
+        adminPanelHomeView = new AdminPanelHomeView();
+        
+        getContentPane().setLayout(new AbsoluteLayout());
+        getContentPane().add(jPanel1, new AbsoluteConstraints(0, 0, 1000, 60)); // Gantikan x, y, width, height dengan nilai yang sesuai
+        getContentPane().add(jPanel4, new AbsoluteConstraints(0, 60, 180, 640)); // Gantikan x, y, width, height dengan nilai yang sesuai
+        getContentPane().add(adminPanelHomeView, new AbsoluteConstraints(180, 60, 790, 590)); // Gantikan x, y, width, height dengan nilai yang sesuai
+
     }
     
     /**
@@ -59,24 +68,6 @@ public class AdminHomesView extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         pnlDefaultAdmin = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        rSTableMetro2 = new rojerusan.RSTableMetro();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -195,187 +186,20 @@ public class AdminHomesView extends javax.swing.JFrame {
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 180, 640));
 
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnlDefaultAdmin.setBackground(new java.awt.Color(255, 255, 255));
-        pnlDefaultAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel12.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(255, 51, 51)));
-
-        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/numberOfCar.png"))); // NOI18N
-        jLabel11.setText("5");
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addGap(44, 44, 44))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addContainerGap())
-        );
-
-        pnlDefaultAdmin.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 150, 70));
-
-        jLabel12.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel12.setText("List User");
-        pnlDefaultAdmin.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel13.setText("Number of User");
-        pnlDefaultAdmin.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
-
-        jPanel13.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(102, 102, 255)));
-
-        jLabel14.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/numberOfUser.png"))); // NOI18N
-        jLabel14.setText("5");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addGap(44, 44, 44))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addContainerGap())
-        );
-
-        pnlDefaultAdmin.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 150, 70));
-
-        jLabel15.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel15.setText("Number of Car");
-        pnlDefaultAdmin.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
-
-        jPanel14.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(255, 51, 51)));
-
-        jLabel16.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/numberOfCar.png"))); // NOI18N
-        jLabel16.setText("5");
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(44, 44, 44))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addContainerGap())
-        );
-
-        pnlDefaultAdmin.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 150, 70));
-
-        jLabel17.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel17.setText("Profit");
-        pnlDefaultAdmin.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
-
-        jPanel15.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(102, 102, 255)));
-
-        jLabel18.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/profit.png"))); // NOI18N
-        jLabel18.setText("100000000");
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(26, 26, 26))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel18)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pnlDefaultAdmin.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 150, 70));
-
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"K 6425 XA", "Honda", "500000", "3", "Btn"},
-                {"BA 2225 XA", "Honda", "500000", "3", "Btn"},
-                {"K 6425 XA", "Honda", "500000", "3", "Btn"},
-                {"K 6425 XA", "Honda", "500000", null, null}
-            },
-            new String [] {
-                "Name", "Phone", "Email", "Role", "Detail"
-            }
-        ));
-        rSTableMetro1.setColorBordeFilas(new java.awt.Color(0, 112, 192));
-        rSTableMetro1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 10)); // NOI18N
-        rSTableMetro1.setFuenteFilas(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        rSTableMetro1.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        rSTableMetro1.setFuenteHead(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        rSTableMetro1.setRowHeight(20);
-        jScrollPane1.setViewportView(rSTableMetro1);
-        if (rSTableMetro1.getColumnModel().getColumnCount() > 0) {
-            rSTableMetro1.getColumnModel().getColumn(1).setResizable(false);
-            rSTableMetro1.getColumnModel().getColumn(3).setResizable(false);
-        }
-
-        pnlDefaultAdmin.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 460, 170));
-
-        jLabel19.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel19.setText("Number of Vehicle");
-        pnlDefaultAdmin.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-
-        jLabel20.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel20.setText("List Vehicle");
-        pnlDefaultAdmin.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
-
-        rSTableMetro2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"K 6425 XA", "Honda", "500000", "3", "Btn"},
-                {"BA 2225 XA", "Honda", "500000", "3", "Btn"},
-                {"K 6425 XA", "Honda", "500000", "3", "Btn"},
-                {"K 6425 XA", "Honda", "500000", null, "Btn"}
-            },
-            new String [] {
-                "License", "Name", "Price", "Quantiity", "Detail"
-            }
-        ));
-        rSTableMetro2.setColorBordeFilas(new java.awt.Color(0, 112, 192));
-        rSTableMetro2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 10)); // NOI18N
-        rSTableMetro2.setFuenteFilas(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        rSTableMetro2.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        rSTableMetro2.setFuenteHead(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        rSTableMetro2.setRowHeight(20);
-        jScrollPane2.setViewportView(rSTableMetro2);
-        if (rSTableMetro2.getColumnModel().getColumnCount() > 0) {
-            rSTableMetro2.getColumnModel().getColumn(1).setResizable(false);
-            rSTableMetro2.getColumnModel().getColumn(3).setResizable(false);
-        }
-
-        pnlDefaultAdmin.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 460, 170));
-
-        jLayeredPane1.add(pnlDefaultAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 640));
-
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, 640));
+
+        javax.swing.GroupLayout pnlDefaultAdminLayout = new javax.swing.GroupLayout(pnlDefaultAdmin);
+        pnlDefaultAdmin.setLayout(pnlDefaultAdminLayout);
+        pnlDefaultAdminLayout.setHorizontalGroup(
+            pnlDefaultAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 820, Short.MAX_VALUE)
+        );
+        pnlDefaultAdminLayout.setVerticalGroup(
+            pnlDefaultAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlDefaultAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 820, 640));
 
         setSize(new java.awt.Dimension(1014, 737));
         setLocationRelativeTo(null);
@@ -411,6 +235,7 @@ public class AdminHomesView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 new AdminHomesView(adminModel).setVisible(true);
             }
         });
@@ -456,25 +281,11 @@ public class AdminHomesView extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -482,8 +293,6 @@ public class AdminHomesView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDashboardView;
     private javax.swing.JLabel lblLogoutView;
     private javax.swing.JLabel lblMenu;
@@ -493,7 +302,5 @@ public class AdminHomesView extends javax.swing.JFrame {
     private javax.swing.JLabel lblVehicleView;
     private javax.swing.JPanel pnlDefaultAdmin;
     private javax.swing.JPanel pnlVehicleView;
-    private rojerusan.RSTableMetro rSTableMetro1;
-    private rojerusan.RSTableMetro rSTableMetro2;
     // End of variables declaration//GEN-END:variables
 }

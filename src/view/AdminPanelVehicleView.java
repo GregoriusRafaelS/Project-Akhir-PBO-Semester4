@@ -26,10 +26,12 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
      */
     
     DefaultTableModel model;
-    public AdminPanelVehicleView() {
+    AdminHomesView adminHomeView;
+    public AdminPanelVehicleView(AdminHomesView adminHomeView) {
         initComponents();
+        this.adminHomeView = adminHomeView;
         
-        ManageVehicleController controller = new ManageVehicleController(this, model);
+        ManageVehicleController controller = new ManageVehicleController(adminHomeView, this, model);
         controller.setVehicleDetailToTable();
     }
 
@@ -402,10 +404,11 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         jPanel12.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, -1));
 
         lblIdType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblIdType.setText("0");
+        lblIdType.setText("-");
         jPanel12.add(lblIdType, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, -1));
 
         lblLicense.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblLicense.setText("-");
         jPanel12.add(lblLicense, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 170, 30));
 
         add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 320));
