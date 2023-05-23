@@ -108,7 +108,7 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         });
         jPanel12.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 170, 30));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/name.png"))); // NOI18N
         jPanel12.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -122,7 +122,7 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         });
         jPanel12.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 170, 30));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/password.png"))); // NOI18N
         jPanel12.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 30, 30));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -136,14 +136,14 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         });
         jPanel12.add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 170, 30));
 
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/phone.png"))); // NOI18N
         jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 30, 30));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel27.setText("Role");
         jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
 
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/email.png"))); // NOI18N
         jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 30, 30));
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {

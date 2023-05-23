@@ -342,7 +342,7 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         });
         jPanel12.add(fldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 170, 30));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/name.png"))); // NOI18N
         jPanel12.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 30, 30));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -356,14 +356,14 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         });
         jPanel12.add(fldPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 170, 30));
 
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
-        jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 30, 30));
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/price.png"))); // NOI18N
+        jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 30, 30));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel27.setText("Quantity");
         jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
 
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/quantity.png"))); // NOI18N
         jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 30, 30));
 
         fldQuantity.addActionListener(new java.awt.event.ActionListener() {
@@ -377,8 +377,8 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         jLabel29.setText("Description");
         jPanel12.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
 
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dataUserNonActive.png"))); // NOI18N
-        jPanel12.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 30, 30));
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/description.png"))); // NOI18N
+        jPanel12.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 30, 30));
 
         fldDescription.setColumns(20);
         fldDescription.setRows(5);

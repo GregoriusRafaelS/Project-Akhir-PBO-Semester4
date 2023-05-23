@@ -33,7 +33,7 @@ public class AdminHomesView extends javax.swing.JFrame {
         getContentPane().setLayout(new AbsoluteLayout());
         getContentPane().add(jPanel1, new AbsoluteConstraints(0, 0, 1000, 60)); // Gantikan x, y, width, height dengan nilai yang sesuai
         getContentPane().add(jPanel4, new AbsoluteConstraints(0, 60, 180, 640)); // Gantikan x, y, width, height dengan nilai yang sesuai
-        getContentPane().add(adminPanelHomeView, new AbsoluteConstraints(180, 60, 790, 590)); // Gantikan x, y, width, height dengan nilai yang sesuai
+        getContentPane().add(adminPanelHomeView, new AbsoluteConstraints(180, 60, 820, 640)); // Gantikan x, y, width, height dengan nilai yang sesuai
 
     }
     
@@ -188,18 +188,8 @@ public class AdminHomesView extends javax.swing.JFrame {
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, 640));
 
-        javax.swing.GroupLayout pnlDefaultAdminLayout = new javax.swing.GroupLayout(pnlDefaultAdmin);
-        pnlDefaultAdmin.setLayout(pnlDefaultAdminLayout);
-        pnlDefaultAdminLayout.setHorizontalGroup(
-            pnlDefaultAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
-        );
-        pnlDefaultAdminLayout.setVerticalGroup(
-            pnlDefaultAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(pnlDefaultAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 820, 640));
+        pnlDefaultAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(pnlDefaultAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 790, 590));
 
         setSize(new java.awt.Dimension(1014, 737));
         setLocationRelativeTo(null);

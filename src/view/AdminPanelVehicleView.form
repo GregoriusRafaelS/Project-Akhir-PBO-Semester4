@@ -597,7 +597,7 @@
         <Component class="javax.swing.JLabel" name="jLabel24">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/dataUserNonActive.png"/>
+              <Image iconType="3" name="/assets/name.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -632,12 +632,12 @@
         <Component class="javax.swing.JLabel" name="jLabel26">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/dataUserNonActive.png"/>
+              <Image iconType="3" name="/assets/price.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="290" y="150" width="30" height="30"/>
+              <AbsoluteConstraints x="300" y="150" width="30" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -657,7 +657,7 @@
         <Component class="javax.swing.JLabel" name="jLabel28">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/dataUserNonActive.png"/>
+              <Image iconType="3" name="/assets/quantity.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -692,12 +692,12 @@
         <Component class="javax.swing.JLabel" name="jLabel30">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/dataUserNonActive.png"/>
+              <Image iconType="3" name="/assets/description.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="530" y="120" width="30" height="30"/>
+              <AbsoluteConstraints x="540" y="120" width="30" height="30"/>
             </Constraint>
           </Constraints>
         </Component>

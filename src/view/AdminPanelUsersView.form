@@ -60,7 +60,7 @@
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/dataUserNonActive.png"/>
+              <Image iconType="3" name="/assets/name.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -95,7 +95,7 @@
         <Component class="javax.swing.JLabel" name="jLabel24">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/dataUserNonActive.png"/>
+              <Image iconType="3" name="/assets/password.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -130,7 +130,7 @@
         <Component class="javax.swing.JLabel" name="jLabel26">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/dataUserNonActive.png"/>
+              <Image iconType="3" name="/assets/phone.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -155,7 +155,7 @@
         <Component class="javax.swing.JLabel" name="jLabel28">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/dataUserNonActive.png"/>
+              <Image iconType="3" name="/assets/email.png"/>
             </Property>
           </Properties>
           <Constraints>

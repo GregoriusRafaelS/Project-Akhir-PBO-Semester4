@@ -5,16 +5,21 @@
  */
 package controller;
 
+import javax.swing.table.DefaultTableModel;
 import model.CustomerModel;
-import view.CustomerHomeView;
-import view.CustomerHomesView;
+import model.UserModel;
+import view.AdminHomesView;
+import view.CustomerCarsView;
 
 /**
  *
  * @author TUF GAMING
  */
 public class CustomerController {
-    public CustomerController(CustomerModel customerModel, CustomerHomesView customerHomeView){
+    AdminHomesView adminHomeView;
+    DefaultTableModel model;
+    UserModel userModel = new UserModel(0, "", "", "", "", "", "", "");
+    public CustomerController(CustomerModel customerModel, CustomerCarsView customerCarsView){
         
     }
 }

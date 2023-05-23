@@ -13,8 +13,7 @@ import model.CustomerModel;
 import model.UserModel;
 import view.AdminHomeView;
 import view.AdminHomesView;
-import view.CustomerHomeView;
-import view.CustomerHomesView;
+import view.CustomerCarsView;
 import view.LoginView;
 import view.RegisterView;
 
@@ -48,9 +47,9 @@ public class LoginController {
                     JOptionPane.showMessageDialog(null, "Login Success");
                     
                     CustomerModel customerModel = new CustomerModel(userModel.getId(), userModel.getName(), userModel.getPass(), userModel.getEmail(), userModel.getPhone(), userModel.getRole(), userModel.getCreated_at(), userModel.getUpdated_at());
-                    CustomerHomesView customerHomeView = new CustomerHomesView(customerModel);
-                    customerHomeView.show();
-                    CustomerController customerController = new CustomerController(customerModel, customerHomeView);
+                    CustomerCarsView customerCarsView = new CustomerCarsView(customerModel);
+                    customerCarsView.show();
+                    CustomerController customerController = new CustomerController(customerModel, customerCarsView);
                     loginView.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "Failed Login");
@@ -86,7 +85,5 @@ public class LoginController {
         });
         
     }
-    
-    
     }
 //}

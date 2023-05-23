@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
 import javax.swing.*;
@@ -7,7 +12,16 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author TUF GAMING
+ */
 public class AdminSetVehicleView extends JFrame {
+    
+    /**
+     * Creates new form AdminSetVehicleView
+     */
+    
     private JPanel mainPanel;
     private JScrollPane scrollPane;
     private List<JLabel> labels;
@@ -22,7 +36,7 @@ public class AdminSetVehicleView extends JFrame {
         this.numberOfFields = numberOfFields;
 
         setTitle("Add License Car");
-        setLayout(null); // Gunakan layout manager null untuk mengatur posisi komponen secara manual
+        setLayout(null); 
 
         JLabel lblTitle = new JLabel("Add License Vehicle");
         lblTitle.setBounds(100, 30, 200, 20);
@@ -40,25 +54,21 @@ public class AdminSetVehicleView extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setPreferredSize(new Dimension(600, 400));
 
-        // Initialize lists
         labels = new ArrayList<>();
         textFields = new ArrayList<>();
 
-        // Create GridBagConstraints
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.anchor = GridBagConstraints.CENTER; // Mengatur anchor ke CENTER
-        gbc.insets = new Insets(10, 10, 10, 10); // Jarak antara komponen
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.insets = new Insets(10, 10, 10, 10);
 
-        // Add lblTitle to mainPanel
+        
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 2; // Mengatur gridwidth menjadi 2 agar lblTitle memenuhi 2 kolom
+        gbc.gridwidth = 2; 
         mainPanel.add(lblTitle, gbc);
 
-        // Reset gridwidth
         gbc.gridwidth = 1;
 
-        // Add labels and text fields to the panel
         for (int i = 1; i <= numberOfFields; i++) {
             JLabel label = new JLabel("License vehicle - " + i);
             JTextField textField = new JTextField(20);
@@ -66,7 +76,6 @@ public class AdminSetVehicleView extends JFrame {
             labels.add(label);
             textFields.add(textField);
 
-            // Set GridBagConstraints for each component
             gbc.gridx = 0;
             gbc.gridy = i;
             mainPanel.add(label, gbc);
@@ -75,26 +84,19 @@ public class AdminSetVehicleView extends JFrame {
             mainPanel.add(textField, gbc);
         }
           
-        
-        // Add "Add License" button
         gbc.gridx = 0;
-        gbc.gridy = numberOfFields + 1; // Mengatur posisi pada baris setelah label dan text field terakhir
-        gbc.gridwidth = 2; // Mengatur gridwidth menjadi 2 agar tombol memenuhi 2 kolom
+        gbc.gridy = numberOfFields + 1;
+        gbc.gridwidth = 2;
         mainPanel.add(addButton, gbc);
         
-        // Set the content pane
         setContentPane(scrollPane);
 
-        // Set the content pane
         setContentPane(scrollPane);
 
-        // Pack the JFrame
         pack();
 
-        // Set JFrame location to the center of the screen
         setLocationRelativeTo(null);
 
-        // Display the JFrame
         setVisible(true);
         
         
