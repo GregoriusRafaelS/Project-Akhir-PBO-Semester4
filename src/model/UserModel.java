@@ -68,7 +68,6 @@ public class UserModel extends DatabaseConnector{
             
             statement.close();
             resultSet.close();
-            connection.close();
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -96,7 +95,6 @@ public class UserModel extends DatabaseConnector{
             
             statement.close();
             resultSet.close();
-            connection.close();
             return " ";
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
@@ -130,7 +128,6 @@ public class UserModel extends DatabaseConnector{
             statement.executeUpdate(query);
             
             statement.close();
-            
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -160,7 +157,6 @@ public class UserModel extends DatabaseConnector{
              user = new UserModel(id, name, pass , email, phone, role, created_at, updated_at);
             statement.close();
             resultSet.close();
-            
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 

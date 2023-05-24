@@ -117,9 +117,8 @@ public class RentalModel extends DatabaseConnector {
             System.out.println("Error : " + e.getMessage());
         } 
 
-//         ubah jadi busy
         vehicleModel.updateVehicle(license, "busy");
-        // type --
+
         int qty = vehicle[0].getQuantity();
         qty -= 1;
         vehicle[0].setQuantity(qty);

@@ -32,13 +32,41 @@ public class ManageRentalController {
             @Override
             public void actionPerformed(ActionEvent arg0) {        
                 String license = adminPanelRecordsView.getTxtSearch().getText();
-                VehicleModel vehicle = vehicleModel.searchVehicleByLicense("id_vehicle", license)[0];
+                    String query = "SELECT j.name, i.id_rental, "
+                                        + "i.price, i.id_vehicle, "
+                                        + "i.start_rental, "
+                                        + "i.end_rental, "
+                                        + "i.returned_date "
+                                        + "FROM rental i "
+                                        + "INNER JOIN users j ON i.id_user = j.id_user";
+                RentalModel rentalModel = new RentalModel(0, 0, "", "", "", "", "");
+                RentalModel[] rental = rentalModel.putAllData(query, "all");
+                int i=0; boolean value = false;
+                int price=0;
+                String id_vehicle="", username="", start_rental="", end_rental="",  return_date="";
+
+                while(i < rental.length && value == false){
+                    username = rental[i].getUsername();
+                    price = rental[i].getPrice();
+                    id_vehicle = rental[i].getId_vehicle();
+                    start_rental = rental[i].getStart_rental();
+                    end_rental = rental[i].getEnd_rental();
+                    return_date = rental[i].getReturn_date();
+                    if(return_date == null){
+                        return_date = "Still borrowed";
+                    }
+                    if(rental[i].getId_vehicle().equals(license)){
+                        value = true;
+                    }
+                     i++;
+                }
                 clearVehicleTable();
-                
-                final DefaultTableModel model = (DefaultTableModel) adminPanelRecordsView.getTblRecordsDetail().getModel();
-                Object[] obj = {vehicle.getId_vehicle(), vehicle.getName(), vehicle.getQuantity(), vehicle.getPrice(), vehicle.getDescription(), vehicle.getCategories()};
+                Object[] obj = {username, id_vehicle, price, start_rental, end_rental, return_date};
+                System.out.println(username);
+                DefaultTableModel model = (DefaultTableModel) adminPanelRecordsView.getTblRecordsDetail().getModel();
                 setModel(model);
-                model.addRow(obj);
+
+                model.addRow(obj);  
             }
         });  
         

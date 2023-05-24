@@ -47,7 +47,7 @@ public class CustomerController {
         customerHomeView.getBtnReturn().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0){
-           CustomerPanelReturnView customerPanelReturnView = new CustomerPanelReturnView();
+            CustomerPanelReturnView customerPanelReturnView = new CustomerPanelReturnView(customerModel);
             switchPanels(customerPanelReturnView);
           }
         });

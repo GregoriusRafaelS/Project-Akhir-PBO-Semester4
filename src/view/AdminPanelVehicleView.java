@@ -387,13 +387,13 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 210, 70));
 
         cbxCategories.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "car", "motorcycle" }));
-        jPanel12.add(cbxCategories, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 70, -1));
+        jPanel12.add(cbxCategories, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 100, -1));
 
         btnAdd.setText("Add");
-        jPanel12.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 100, 30));
+        jPanel12.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 100, 30));
 
         btnUpdate.setText("Update");
-        jPanel12.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 100, 30));
+        jPanel12.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 100, 30));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel31.setText("Manage Data Vehicle");
@@ -404,7 +404,7 @@ public class AdminPanelVehicleView extends javax.swing.JPanel {
         jPanel12.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, -1));
 
         lblIdType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblIdType.setText("-");
+        lblIdType.setText("0");
         jPanel12.add(lblIdType, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, -1));
 
         lblLicense.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

@@ -7,7 +7,6 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import model.CustomerModel;
@@ -57,9 +56,7 @@ public class ManagePaymentController {
                 RSDateChooser startRent = customerPanelCarsView.getStartRent();
                 RSDateChooser endRent = customerPanelCarsView.getEndRent();
 
-                rentalModel.addRental(customerModel, license, startRent, endRent);
-                
-//                final DefaultTableModel model = (DefaultTableModel) customerPanelCarsView.getTblVehicleDetail().getModel();                   
+                rentalModel.addRental(customerModel, license, startRent, endRent);                
             }
         });
             

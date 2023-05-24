@@ -75,7 +75,6 @@ public class VehicleModel extends DatabaseConnector {
             
             statement.close();
             resultSet.close();
-
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -107,7 +106,6 @@ public class VehicleModel extends DatabaseConnector {
             
             statement.close();
             resultSet.close();
-
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -116,7 +114,7 @@ public class VehicleModel extends DatabaseConnector {
     
     public Object[][] putAllData(String data, String amt){
         int amtData = amtData(data, amt);
-        Object[][] obj = new Object[amtData][amtData];
+        Object[][] obj = new Object[amtData][5];
 
         int i = 0;
         
@@ -144,7 +142,6 @@ public class VehicleModel extends DatabaseConnector {
             
             statement.close();
             resultSet.close();
-
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -175,7 +172,6 @@ public class VehicleModel extends DatabaseConnector {
             }
             
             statement.close();
-            
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -228,7 +224,7 @@ public class VehicleModel extends DatabaseConnector {
                                 + "j.id_type "
                                 + "FROM vehicle i "
                                 + "INNER JOIN type j ON i.id_type = j.id_type "
-                                + "WHERE " + point + "." + key + " = '" + value +"'";
+                                + "WHERE " + point + "." + key + " = '" + value + "'";
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             

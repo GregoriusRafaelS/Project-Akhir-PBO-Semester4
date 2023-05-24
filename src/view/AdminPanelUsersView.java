@@ -170,7 +170,7 @@ public class AdminPanelUsersView extends javax.swing.JPanel {
         jPanel12.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         lblId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblId.setText("-");
+        lblId.setText("0");
         jPanel12.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

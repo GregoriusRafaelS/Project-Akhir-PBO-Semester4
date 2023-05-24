@@ -119,15 +119,18 @@ public class ManageVehicleController {
         
         adminPanelVehicleView.getBtnSearch().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {        
+            public void actionPerformed(ActionEvent arg0) {       
                 String license = adminPanelVehicleView.getTxtSearch().getText();
-                VehicleModel vehicle = vehicleModel.searchVehicleByLicense("id_vehicle", license)[0];
+                System.out.println(license);
                 clearVehicleTable();
-                
-                final DefaultTableModel model = (DefaultTableModel) adminPanelVehicleView.getTblVehicleDetail().getModel();
-                Object[] obj = {vehicle.getId_vehicle(), vehicle.getName(), vehicle.getQuantity(), vehicle.getPrice(), vehicle.getDescription(), vehicle.getCategories()};
-                setModel(model);
-                model.addRow(obj);
+                if(license != null && !license.equals("Search ...")){
+                    VehicleModel vehicle = vehicleModel.searchVehicleByLicense("id_vehicle", license)[0];
+
+                    final DefaultTableModel model = (DefaultTableModel) adminPanelVehicleView.getTblVehicleDetail().getModel();
+                    Object[] obj = {vehicle.getId_vehicle(), vehicle.getName(), vehicle.getQuantity(), vehicle.getPrice(), vehicle.getDescription(), vehicle.getCategories()};
+                    setModel(model);
+                    model.addRow(obj);
+                }
             }
         });  
         

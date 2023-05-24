@@ -65,9 +65,7 @@ public class AdminController{
                   AdminPanelUsersView adminPanelUsersView = new AdminPanelUsersView();
                   switchPanels(adminPanelUsersView);
               }
-          });
-                  
-          
+          }); 
         
         adminHomeView.getLblRecordsView().addMouseListener(new MouseAdapter(){
             @Override

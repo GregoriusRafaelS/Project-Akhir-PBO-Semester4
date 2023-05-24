@@ -125,14 +125,17 @@ public class ManageUserController {
         adminPanelUserView.getBtnSearch().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {        
-                String name = adminPanelUserView.getTxtSearch().getText();
-                UserModel user = userModel.searchUsersByName(name);
                 clearUserTable();
+                String name = adminPanelUserView.getTxtSearch().getText();
+                if(name != null && !name.equals("Search ...")){
+                    UserModel user = userModel.searchUsersByName(name);
+
+                    final DefaultTableModel model = (DefaultTableModel) adminPanelUserView.getTblUsersDetail().getModel();
+                    Object[] obj = {user.getId(), user.getName(), user.getPass(), user.getEmail(), user.getPhone(), user.getRole()};
+                    setModel(model);
+                    model.addRow(obj);
+                }
                 
-                final DefaultTableModel model = (DefaultTableModel) adminPanelUserView.getTblUsersDetail().getModel();
-                Object[] obj = {user.getId(), user.getName(), user.getPass(), user.getEmail(), user.getPhone(), user.getRole()};
-                setModel(model);
-                model.addRow(obj);
             }
         });  
         
