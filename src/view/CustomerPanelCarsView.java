@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import model.CustomerModel;
+import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSTableMetro;
 
 /**
@@ -46,6 +47,23 @@ public class CustomerPanelCarsView extends javax.swing.JPanel {
     public RSTableMetro getTblVehicleDetail() {
         return tblVehicleDetail;
     }
+
+    public JButton getBtnRent() {
+        return btnRent;
+    }
+
+    public RSDateChooser getEndRent() {
+        return endRent;
+    }
+
+    public JTextField getFldForm() {
+        return fldForm;
+    }
+
+    public RSDateChooser getStartRent() {
+        return startRent;
+    }
+    
     
     
     /**
@@ -65,25 +83,27 @@ public class CustomerPanelCarsView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        rSDateChooser1 = new rojeru_san.componentes.RSDateChooser();
-        rSDateChooser2 = new rojeru_san.componentes.RSDateChooser();
+        endRent = new rojeru_san.componentes.RSDateChooser();
+        startRent = new rojeru_san.componentes.RSDateChooser();
+        btnRent = new javax.swing.JButton();
+        fldForm = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(790, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Exotc350 Bd BT", 1, 24)); // NOI18N
         jLabel19.setText("Vehicle LIST");
-        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         btnSearch.setText("Search");
-        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 90, -1));
+        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 90, 30));
 
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);
             }
         });
-        add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 610, -1));
+        add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 610, 30));
 
         tblVehicleDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,26 +121,31 @@ public class CustomerPanelCarsView extends javax.swing.JPanel {
         tblVehicleDetail.setRowHeight(20);
         jScrollPane3.setViewportView(tblVehicleDetail);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 730, 410));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 720, 350));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("End Rental ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 540, -1, -1));
 
         jLabel2.setText("Let's Rental a Vehicle Right Now");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Start Rental ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, -1, -1));
 
-        rSDateChooser1.setPlaceholder("Select a return date");
-        add(rSDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 250, 30));
+        endRent.setPlaceholder("Select a return date");
+        add(endRent, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 250, 30));
 
-        rSDateChooser2.setPlaceholder("Select a rental date");
-        add(rSDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 250, 30));
+        startRent.setPlaceholder("Select a rental date");
+        add(startRent, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 250, 30));
+
+        btnRent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRent.setText("RENT");
+        add(btnRent, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 90, 80));
+        add(fldForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 580, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -129,14 +154,16 @@ public class CustomerPanelCarsView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRent;
     private javax.swing.JButton btnSearch;
+    private rojeru_san.componentes.RSDateChooser endRent;
+    private javax.swing.JTextField fldForm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private rojeru_san.componentes.RSDateChooser rSDateChooser1;
-    private rojeru_san.componentes.RSDateChooser rSDateChooser2;
+    private rojeru_san.componentes.RSDateChooser startRent;
     private rojerusan.RSTableMetro tblVehicleDetail;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables

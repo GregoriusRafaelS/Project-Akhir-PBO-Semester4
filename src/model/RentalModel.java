@@ -5,7 +5,11 @@
  */
 package model;
 
+import java.security.Timestamp;
 import java.sql.ResultSet;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import rojeru_san.componentes.RSDateChooser;
 
 /**
  *
@@ -72,6 +76,60 @@ public class RentalModel extends DatabaseConnector {
         return rental;
     }
 
+    public void addRental(CustomerModel customerModel, String license, RSDateChooser startRent, RSDateChooser endRent){
+        // check vehicle free / ga
+        VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "", "");
+        Date date1 = startRent.getDatoFecha();
+        Date date2 = endRent.getDatoFecha();
+
+        long l1 = date1.getTime();
+        long l2 = date2.getTime();
+
+        // Membuat objek java.sql.Timestamp dari java.util.Date
+        java.sql.Date newDate1 = new java.sql.Date(l1);
+        java.sql.Date newDate2 = new java.sql.Date(l2);
+
+        
+        VehicleModel[] vehicle = vehicleModel.searchVehicleByLicense("id_vehicle", license);
+        System.out.println(vehicle[0].getQuantity());
+        System.out.println(vehicle[0].getStatus());
+        if(vehicle[0].getQuantity() <= 0 || vehicle[0].getStatus().equals("busy")){
+            JOptionPane.showMessageDialog(null, "Choice Vehicle in te table !!", "Message", JOptionPane.ERROR_MESSAGE);
+        }else{
+            try {
+                // tambahkan
+                     String query = "INSERT INTO `rental`"
+                        + "( `id_user`, `id_vehicle`, `start_rental`, `end_rental`, `price`)"
+                        + "VALUES "
+                        + "('" + customerModel.getId() + "'"
+                        + ",'"+ license + "'"
+                        + ",'" +  newDate1 + "'"
+                        + ",'" +  newDate2 + "'"
+                        + ",'" +  vehicle[0].getPrice()
+                        + "')";
+            statement = connection.createStatement();
+            
+            statement.executeUpdate(query);
+            
+            statement.close();
+            
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        } 
+
+//         ubah jadi busy
+        vehicleModel.updateVehicle(license, "busy");
+        // type --
+        int qty = vehicle[0].getQuantity();
+        qty -= 1;
+        vehicle[0].setQuantity(qty);
+        vehicleModel.updateType(vehicle[0].getName(), vehicle[0].getDescription(), vehicle[0].getQuantity(), vehicle[0].getId_type(), vehicle[0].getPrice());
+        }
+        
+    }
+    
+    
+    
     public String getUsername() {
         return username;
     }

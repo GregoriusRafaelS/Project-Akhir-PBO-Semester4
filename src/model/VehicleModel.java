@@ -16,9 +16,9 @@ import java.util.regex.Pattern;
  */
 public class VehicleModel extends DatabaseConnector {
     private int id_type, price, quantity;
-    private String categories, id_vehicle, name, description;
+    private String categories, id_vehicle, name, description, status;
 
-    public VehicleModel(int id_type, int price, int quantity, String id_vehicle, String categories, String name, String description) {
+    public VehicleModel(int id_type, int price, int quantity, String id_vehicle, String categories, String name, String description, String status) {
         this.id_type = id_type;
         this.price = price;
         this.categories = categories;
@@ -26,13 +26,16 @@ public class VehicleModel extends DatabaseConnector {
         this.name = name;
         this.quantity = quantity;
         this.description = description;
+        this.status = status;
     }
     
-    public int amtData(String data){
+    public int amtData(String data, String amt){
         int i = 0;
         
+        String query = amt.equals("all") ? "SELECT * FROM " + "`" + data + "`" : "SELECT * FROM " + "`" + data + "` WHERE status = '" +  amt + "'";
+
+        
         try {
-            String query = "SELECT * FROM" + "`" + data + "`";
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
    
@@ -48,15 +51,15 @@ public class VehicleModel extends DatabaseConnector {
         return i;
     }
     
-    public VehicleModel[] putAllDataTable(String data){
-        int amtVehicle = amtData(data);
+    public VehicleModel[] putAllDataTable(String data, String amt){
+        int amtVehicle = amtData(data, amt);
         VehicleModel[] vehicle = new VehicleModel[amtVehicle];
     
         int i = 0;
         
         try {
             String query = "SELECT i.id_vehicle, i.id_type, j.id_type, "
-                                + "j.name, j.price, "
+                                + "j.name, j.price, i.status, "
                                 + "j.description, "
                                 + "j.availability, "
                                 + "i.categories "
@@ -66,7 +69,7 @@ public class VehicleModel extends DatabaseConnector {
             ResultSet resultSet = statement.executeQuery(query);
    
             while(resultSet.next()){
-                vehicle[i] = new VehicleModel(resultSet.getInt("i.id_type"), resultSet.getInt("j.price"), resultSet.getInt("j.availability"), resultSet.getString("i.id_vehicle"), resultSet.getString("i.categories"), resultSet.getString("j.name"), resultSet.getString("j.description"));
+                vehicle[i] = new VehicleModel(resultSet.getInt("i.id_type"), resultSet.getInt("j.price"), resultSet.getInt("j.availability"), resultSet.getString("i.id_vehicle"), resultSet.getString("i.categories"), resultSet.getString("j.name"), resultSet.getString("j.description"), resultSet.getString("i.status"));
                 i++;
             }
             
@@ -79,9 +82,41 @@ public class VehicleModel extends DatabaseConnector {
         return vehicle;
     }
     
-    public Object[][] putAllData(String data){
-        int amtData = amtData(data);
-        Object[][] obj = new Object[amtData][5];
+    
+     public VehicleModel[] putAllDataFree(String data, String amt){
+        int amtVehicle = amtData(data, amt);
+        VehicleModel[] vehicle = new VehicleModel[amtVehicle];
+    
+        int i = 0;
+        
+        try {
+            String query = "SELECT i.id_vehicle, i.id_type, j.id_type, "
+                                + "j.name, j.price, i.status, "
+                                + "j.description, "
+                                + "j.availability, "
+                                + "i.categories "
+                                + "FROM vehicle i "
+                                + "INNER JOIN type j ON i.id_type = j.id_type WHERE status = '" +  amt + "'";
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+   
+            while(resultSet.next()){
+                vehicle[i] = new VehicleModel(resultSet.getInt("i.id_type"), resultSet.getInt("j.price"), resultSet.getInt("j.availability"), resultSet.getString("i.id_vehicle"), resultSet.getString("i.categories"), resultSet.getString("j.name"), resultSet.getString("j.description"), resultSet.getString("i.status"));
+                i++;
+            }
+            
+            statement.close();
+            resultSet.close();
+
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        } 
+        return vehicle;
+    }
+    
+    public Object[][] putAllData(String data, String amt){
+        int amtData = amtData(data, amt);
+        Object[][] obj = new Object[amtData][amtData];
 
         int i = 0;
         
@@ -165,12 +200,27 @@ public class VehicleModel extends DatabaseConnector {
         } 
     }
     
+    public void updateVehicle(String license, String status){
+        try {
+            String query = "UPDATE `vehicle` SET "
+                                + "`status` = '" + status
+                                + "' WHERE `id_vehicle` = '" + license + "'";
+
+            statement = connection.createStatement();
+            statement.executeUpdate(query);
+            
+            statement.close();
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        } 
+    }
+    
     public VehicleModel[] searchVehicleByLicense(String key, String value){
         String point = key.equals("id_vehicle") ? "i" : "j"; int i=0;
         
         VehicleModel[] vehicle = new VehicleModel[10];
         try {
-            String query = "SELECT i.id_vehicle, "
+            String query = "SELECT i.id_vehicle, i.status, "
                                 + "j.name, j.price, "
                                 + "j.description, "
                                 + "j.availability, "
@@ -184,14 +234,16 @@ public class VehicleModel extends DatabaseConnector {
             
             if (resultSet.next()) {
                 do{
-                    id_vehicle = (resultSet.getString("Id_vehicle"));
+                    id_vehicle = (resultSet.getString("id_vehicle"));
                     name = (resultSet.getString("name"));
                     quantity = (resultSet.getInt("availability"));
                     price = (resultSet.getInt("price"));
                     description = (resultSet.getString("description"));
                     categories = (resultSet.getString("categories"));
                     id_type = (resultSet.getInt("id_type"));
-                    vehicle[i] = new VehicleModel(id_type, price, quantity, id_vehicle, categories, name, description); i++;
+                    status = (resultSet.getString("status"));
+                    vehicle[i] = new VehicleModel(id_type, price, quantity, id_vehicle, categories, name, description, status); 
+                    i++;
                 }while(resultSet.next());
             } else{
                 id_vehicle = null;
@@ -201,6 +253,7 @@ public class VehicleModel extends DatabaseConnector {
                 description = null;
                 categories = null;
                 id_type = 0;
+                status = null;
             }
 
             statement.close();
@@ -216,6 +269,7 @@ public class VehicleModel extends DatabaseConnector {
         try {
             for (String licenseValue : license) {
                 String query = "INSERT INTO `vehicle` SET "
+                                + "`status` = 'free', "
                                 + "`id_vehicle` = '" + licenseValue + "', "
                                 + "`categories` = '" + categories + "', "
                                 + "`id_type` = " + id_type;
@@ -244,7 +298,7 @@ public class VehicleModel extends DatabaseConnector {
     }  
      
     public boolean isValidName(String name){   
-        Object[][] type = putAllData("type");
+        Object[][] type = putAllData("type", "all");
         for(int i=0;i<type.length;i++){  
             if(type[i][1].equals(name)){  
                 return false;    
@@ -307,6 +361,10 @@ public class VehicleModel extends DatabaseConnector {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getStatus() {
+        return status;
     }
     
     

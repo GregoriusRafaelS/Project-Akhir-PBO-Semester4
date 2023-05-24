@@ -128,7 +128,7 @@ public class ManageUserController {
                 String name = adminPanelUserView.getTxtSearch().getText();
                 UserModel user = userModel.searchUsersByName(name);
                 clearUserTable();
-
+                
                 final DefaultTableModel model = (DefaultTableModel) adminPanelUserView.getTblUsersDetail().getModel();
                 Object[] obj = {user.getId(), user.getName(), user.getPass(), user.getEmail(), user.getPhone(), user.getRole()};
                 setModel(model);

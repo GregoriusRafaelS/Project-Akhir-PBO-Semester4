@@ -15,7 +15,7 @@ import model.VehicleModel;
  * @author TUF GAMING
  */
 public class AdminPanelHomeView extends javax.swing.JPanel {
-    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "");
+    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "", "");
     UserModel userModel = new UserModel(0, "", "", "", "", "", "", "");
     RentalModel rentalModel = new RentalModel(0, 0, "", "", "", "", "");
 
@@ -30,7 +30,7 @@ public class AdminPanelHomeView extends javax.swing.JPanel {
             price += rental.getPrice();
         }
         lblProfit.setText(String.valueOf(price));
-        lblVehicle.setText(String.valueOf(vehicleModel.amtData("vehicle")));
+        lblVehicle.setText(String.valueOf(vehicleModel.amtData("vehicle", "all")));
         lblUser.setText(String.valueOf(userModel.amtData("users")));
         lblRental.setText(String.valueOf(rentalModel.amtData("rental", "all")));
     }

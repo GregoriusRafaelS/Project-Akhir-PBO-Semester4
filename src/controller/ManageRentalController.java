@@ -20,7 +20,7 @@ import view.AdminPanelRecordsView;
  * @author TUF GAMING
  */
 public class ManageRentalController {
-    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "");
+    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "", "");
     DefaultTableModel model;
     AdminPanelRecordsView adminPanelRecordsView;
     

@@ -68,7 +68,7 @@ public class UserModel extends DatabaseConnector{
             
             statement.close();
             resultSet.close();
-
+            connection.close();
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         } 
@@ -96,7 +96,7 @@ public class UserModel extends DatabaseConnector{
             
             statement.close();
             resultSet.close();
-            
+            connection.close();
             return " ";
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
@@ -137,11 +137,11 @@ public class UserModel extends DatabaseConnector{
 
     }
     
-    public UserModel searchUsersByName(String name){
+    public UserModel searchUsersByName(String data){
         UserModel user =  new UserModel(0, "", "", "", "", "", "", "");
         try {
             String query = "SELECT * FROM `users` WHERE "
-                    + "`name`='" + name + "'";
+                    + "`name`='" + data + "'";
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             

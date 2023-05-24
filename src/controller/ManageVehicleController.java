@@ -25,7 +25,7 @@ import view.AdminSetVehicleView;
  * @author TUF GAMING
  */
 public class ManageVehicleController {
-    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "");
+    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "", "");
     AdminHomesView adminHomeView;
     
     DefaultTableModel model;
@@ -151,8 +151,8 @@ public class ManageVehicleController {
     }
     
    public void setVehicleDetailToTable(){
-        VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "");
-        VehicleModel[] vehicle = vehicleModel.putAllDataTable("vehicle");
+        VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "", "");
+        VehicleModel[] vehicle = vehicleModel.putAllDataTable("vehicle", "all");
         int i=0, id=0, quantity=0, price=0;
         String name, license, description, categories;
         while(i < vehicle.length){

@@ -19,7 +19,7 @@ import view.AdminSetVehicleView;
  * @author TUF GAMING
  */
 public class SetVehicleController extends DatabaseConnector{
-    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "");
+    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "", "");
     int qty, id_type;
     AdminSetVehicleView adminSetVehicleView;
     String categories;

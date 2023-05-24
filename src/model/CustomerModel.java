@@ -15,9 +15,5 @@ public class CustomerModel extends UserModel{
           super(id, name, pass, email, phone, role, created_at, updated_at);
     }
     
-    public void testing(){
-    
-    }
-    
         
 }

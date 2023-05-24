@@ -36,6 +36,7 @@ public class AdminController{
         adminHomeView.getLblVehicleView().addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e) {
+                System.out.println("ssss");
                   AdminPanelVehicleView adminPanelVehicleView = new AdminPanelVehicleView(adminHomeView);
                   switchPanels(adminPanelVehicleView);
               }

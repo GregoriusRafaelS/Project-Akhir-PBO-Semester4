@@ -7,11 +7,13 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import model.CustomerModel;
 import model.RentalModel;
 import model.VehicleModel;
+import rojeru_san.componentes.RSDateChooser;
 import view.CustomerPanelCarsView;
 
 /**
@@ -19,7 +21,7 @@ import view.CustomerPanelCarsView;
  * @author TUF GAMING
  */
 public class ManagePaymentController {
-    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "");
+    VehicleModel vehicleModel = new VehicleModel(0, 0, 0, "", "", "", "", "");
 
     CustomerPanelCarsView customerPanelCarsView;
     CustomerModel customerModel;
@@ -46,11 +48,25 @@ public class ManagePaymentController {
 
             }
         }); 
+        
+        customerPanelCarsView.getBtnRent().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0) { 
+                RentalModel rentalModel = new RentalModel(0, 0, "", "", "", "", "");
+                String license = customerPanelCarsView.getFldForm().getText();
+                RSDateChooser startRent = customerPanelCarsView.getStartRent();
+                RSDateChooser endRent = customerPanelCarsView.getEndRent();
+
+                rentalModel.addRental(customerModel, license, startRent, endRent);
+                
+//                final DefaultTableModel model = (DefaultTableModel) customerPanelCarsView.getTblVehicleDetail().getModel();                   
+            }
+        });
             
     }
     
     public void setVehicleDetailToTable(){
-        VehicleModel[] vehicle = vehicleModel.putAllDataTable("vehicle");
+        VehicleModel[] vehicle = vehicleModel.putAllDataFree("vehicle", "free");
         int i=0, id=0, quantity=0, price=0;
         String name, license, description, categories; JButton btn = new JButton("Rental Now");
         while(i < vehicle.length){
@@ -66,7 +82,7 @@ public class ManagePaymentController {
             i++;
         }
     }
-    
+        
     public void clearVehicleTable(){
        DefaultTableModel model = (DefaultTableModel)customerPanelCarsView.getTblVehicleDetail().getModel(); 
        model.setRowCount(0);
